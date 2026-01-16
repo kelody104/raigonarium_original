@@ -1,0 +1,40 @@
+<div class="component is-3d is-pointer-events-none is-grab" [style.width.px]="size * gridSize"
+     appMovable [movable.option]="movableOption" (movable.ondragstart)="onMove()" (movable.ondragend)="onMoved()">
+  <div class="component-content is-pointer-events-auto"
+       appRotable [rotable.option]="rotableOption" (rotable.ondragstart)="onMove()" (rotable.ondragend)="onMoved()">
+    <img *ngIf="!isGod && !isHand && imageFile" class="card-image" [src]="(isFront ? frontImage.url : backImage.url) | safe: 'resourceUrl'">
+    <div *ngIf="!isFront && hasOwner && 0 < ownerName.length" class="name-tag is-nowrap has-length-limit is-black-background" [ngStyle]="{'transform': 'translateY(-75%) translateX(-50%) translateX(' + size * gridSize / 2 +'px)'}">
+      <span>{{ownerName}}</span>
+    </div>
+    <!--<img *ngIf="!isFront && isVisible && frontImage" class="card-image thumbnail-transform is-translucent" [src]="frontImage.url | safe: 'resourceUrl'">-->
+    <img *ngIf="isHand || isGod && frontImage" class="card-image" [src]="frontImage.url | safe: 'resourceUrl'">
+    <!--<img *ngIf="!isFront && isGod && frontImage" class="card-image thumbnail-transform" [src]="frontImage.url  | safe: 'resourceUrl'">-->
+    <ng-container *ngIf="!isIconHidden">
+      <!--<div class="rotate-grab of-left-top">
+        <i class="material-icons">autorenew</i>
+      </div>
+      <div class="rotate-grab of-left-bottom">
+        <i class="material-icons">autorenew</i>
+      </div>
+      <div class="rotate-grab of-right-bottom">
+        <i class="material-icons">autorenew</i>
+      </div>
+      <div class="rotate-grab of-right-top">
+        <i class="material-icons">autorenew</i>
+      </div>-->
+      <div class="border-bg is-pointer-events-none"></div>
+    </ng-container>
+  </div>
+  <div *ngIf="card.playername && card.rotate == 0" class="name" [ngStyle]="{'transform': 'translateY(-26%) translateX(-50%) translateX(' + size * gridSize / 2 +'px) rotate(0deg)'}">
+    {{card.playername}}
+  </div>
+  <!--<div *ngIf="card.playername && card.rotate == 90" class="name" [ngStyle]="{'transform': 'translateY(-115%) translateX(-20%) translateX(' + size * gridSize / 2 +'px) rotate(90deg)'}">
+    {{card.playername}}
+  </div>-->
+  <div *ngIf="card.playername && card.rotate == 180" class="name" [ngStyle]="{'transform': 'translateY(-111%) translateX(-50%) translateX(' + size * gridSize / 2 +'px) rotate(180deg)'}">
+    {{card.playername}}
+  </div>
+  <!--<div *ngIf="card.playername && card.rotate == 270" class="name" [ngStyle]="{'transform': 'translateY(-115%) translateX(-80%) translateX(' + size * gridSize / 2 +'px) rotate(270deg)'}">
+    {{card.playername}}
+  </div>-->
+</div>

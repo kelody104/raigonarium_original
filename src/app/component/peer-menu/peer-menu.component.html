@@ -1,0 +1,268 @@
+<div *ngIf="myPeer">
+  <details>
+    <summary>
+      プレイヤー情報&emsp;<button style=" height: 2.2em;" *ngIf="!isConvention" (click)="createnameplate(myPeer.name)" [disabled]="myPeer.name.length > 6">名前</button>：<input [(ngModel)]="myPeer.name" size="10" placeholder="あなたの名前" maxlength="6" [disabled]="myPeer.name.length > 6" />&emsp;ID：<span *ngIf="networkService.isOpen" style="font-weight: bold;">{{networkService.peerContext.userId}}</span>
+      <span *ngIf="!networkService.isOpen" style="font-weight: bold;">???</span>
+    </summary>
+    <div oncontextmenu="return false;" draggable="false" *ngIf="myPeer.image" class="image cover" (click)="changeIcon()" [style.background-image]="'url(' + myPeer.image.url + ')' | safe: 'style' ">
+      <!--<img *ngIf="myPeer.image" [src]="myPeer.image.url | safe: 'resourceUrl'" />-->
+    </div>
+    <div class="user">
+      名前変更：<select name="family" [(ngModel)]="family">
+        <option value="kuze">空晴家</option>
+        <option value="yakumo">八雲家</option>
+        <option value="rakura">雷藏家</option>
+        <option value="hisetsu">飛雪家</option>
+        <option value="shigure">時雨家</option>
+        <option value="tobari">帳家</option>
+        <option value="other">その他</option>
+      </select>
+      <select *ngIf="family == 'kuze'" id="player" name="player" width="10em" [(ngModel)]="myPeer.name">
+        <option *ngFor="let Player of Kuze" value="{{Player.Name}}">{{Player.Name}}</option>
+      </select>
+      <select *ngIf="family == 'yakumo'" id="player" name="player" [(ngModel)]="myPeer.name">
+        <option *ngFor="let Player of Yakumo" value="{{Player.Name}}">{{Player.Name}}</option>
+      </select>
+      <select *ngIf="family == 'rakura'" id="player" name="player" [(ngModel)]="myPeer.name">
+        <option *ngFor="let Player of Rakura" value="{{Player.Name}}">{{Player.Name}}</option>
+      </select>
+      <select *ngIf="family == 'hisetsu'" id="player" name="player" [(ngModel)]="myPeer.name">
+        <option *ngFor="let Player of Hisetsu" value="{{Player.Name}}">{{Player.Name}}</option>
+      </select>
+      <select *ngIf="family == 'shigure'" id="player" name="player" [(ngModel)]="myPeer.name">
+        <option *ngFor="let Player of Shigure" value="{{Player.Name}}">{{Player.Name}}</option>
+      </select>
+      <select *ngIf="family == 'tobari'" id="player" name="player" [(ngModel)]="myPeer.name">
+        <option *ngFor="let Player of Tobari" value="{{Player.Name}}">{{Player.Name}}</option>
+      </select>
+      <select *ngIf="family == 'other'" id="player" name="player" [(ngModel)]="myPeer.name">
+        <option *ngFor="let Player of Other" value="{{Player.Name}}">{{Player.Name}}</option>
+      </select>
+      <br>
+      段位：<select id="player" name="player" [(ngModel)]="myPeer.Rank">
+        <option *ngFor="let rank of Rank" value="{{rank.name}}">{{rank.name}}</option>
+      </select>
+      <br>
+      パートナーID：<span style="font-weight: bold;">{{myPeer.partner}}</span><button style=" height: 2.2em;" *ngIf="myPeer.partner" (click)="PartnerReset()">変更</button>
+    </div>
+  </details>
+  <hr />
+  <details>
+    <summary>
+      ルーム情報&emsp;<span *ngIf="!networkService.peerContext.isRoom && networkService.peerIds.length <= 1">接続先のID：<input *ngIf="networkService.peerIds.length <= 1" [(ngModel)]="targetUserId" size="4" placeholder="0000" name="targetUserId" /></span>
+      <span *ngIf="networkService.peerContext.isRoom">（入室者数：{{networkService.peerContexts.length + 1}}/{{networkService.peerContext.capacity}}人）</span>
+      <button style=" height: 2.2em;" *ngIf="networkService.peerContext.isRoom" (click)="Recruitment()" [disabled]="!networkService.isOpen">【<i class="fab fa-discord"></i>】募集する</button>
+      <button style=" height: 2.2em;" *ngIf="networkService.peerContext.isRoom" (click)="disconnectPeer()" [disabled]="!networkService.isOpen">退室</button>
+      <ng-container *ngIf="!networkService.peerContext.isRoom">
+        <button style=" height: 2.2em;" *ngIf="!isConvention && networkService.peerIds.length <= 1" (click)="connectPeer()" [disabled]="!networkService.isOpen">接続</button>
+        <button style=" height: 2.2em;" *ngIf="networkService.peerIds.length <= 1" (click)="showLobby()" [disabled]="!networkService.isOpen">ロビー</button>
+        <span *ngIf="networkService.peerIds.length > 1">プライベート接続中（入室者数：{{networkService.peerContexts.length + 1}}人）</span>
+      </ng-container>
+    </summary>
+    <ng-container *ngIf="networkService.peerContext.isRoom">
+      <div>
+        <span>ルーム名：<span *ngIf="networkService.isOpen" style="font-weight: bold;">{{networkService.peerContext.roomName}}/{{networkService.peerContext.roomId}}</span></span>
+      </div>
+      <div>
+        <span>パスワード：<span *ngIf="networkService.isOpen" style="font-weight: bold;">{{networkService.peerContext.password}}</span></span>
+      </div>
+    </ng-container>
+    <hr />
+    <div *ngFor="let context of networkService.peerContexts">
+      <div>
+        <span *ngIf="!context.isOpen">[接続中]</span>
+        <span>
+          <div *ngIf="findOtherPeerImage(context.peerId)" class="other cover" [style.background-image]="'url(' + findOtherPeerImage(context.peerId).url + ')' | safe: 'style' ">
+          </div> <button *ngIf="!myPeer.partner" (click)="Partner(findUserId(context.peerId))" [disabled]="">パートナー</button> <span style="font-weight: bold;"> {{findUserId(context.peerId)}}</span><span *ngIf="findPartner(context.peerId)" style="font-weight: bold;"><i class="fas fa-handshake"></i>{{findPartner(context.peerId)}}</span><span style="font-weight: bold;">/{{findPeerName(context.peerId)}}</span>
+        </span>
+      </div>
+    </div>
+  </details>
+  <hr />
+  <details>
+    <summary>
+      ルール&emsp;<select name="mode" [(ngModel)]="mode">
+        <option value="Raigo">雷轟戦モード</option>
+        <option *ngIf="tabletopActionService.isFullSize" value="Raijin">雷神戦モード</option>
+        <option *ngIf="tabletopActionService.isFullSize" value="RaijinCup">雷神戦(BAN)</option>
+        <option *ngIf="tabletopActionService.isFullSize" value="ToyamaCup">富山式モード</option>
+        <option *ngIf="tabletopActionService.isFullSize" value="TanabataCup">七夕式モード</option>
+      </select><button style=" height: 2.2em;" (click)="game(mode)" [disabled]="">開始</button>
+      <button style=" height: 2.2em;" *ngIf="!isConvention && !tabletopActionService.isFullSize" (click)="certification()" [disabled]="">【<i class="fas fa-lock"></i>】フルサイズで遊ぶ</button>
+      <button style=" height: 2.2em;" *ngIf="!isConvention && tabletopActionService.isFullSize" [disabled]="">【<i class="fas fa-lock-open"></i>】フルサイズ解除</button>
+    </summary>
+    <span *ngIf="tabletopActionService.isFullSize && mode == 'Raigo'">
+      【奥義駒選択】
+      <button style=" height: 2.2em;" (click)="checkall(true)" [disabled]="">全てオン</button>
+      <button style=" height: 2.2em;" (click)="checkall(false)" [disabled]="">全てオフ</button>
+      <br>
+      <span *ngFor="let ougi of ougi; index as i">
+        <input type="checkbox" id="scales" name="scales" [(ngModel)]="ougi.available">
+        <label for="scales">{{ougi.filename}}</label>
+        <span *ngIf="(i+1) % 9 == 0"><br></span>
+      </span>
+    </span>
+    <span *ngIf="mode == 'Raijin'">
+      【奥義駒選択】
+      <button style=" height: 2.2em;" (click)="checkall(true)" [disabled]="">全てオン</button>
+      <button style=" height: 2.2em;" (click)="checkall(false)" [disabled]="">全てオフ</button>
+      <br>
+      <span *ngFor="let ougi of ougi_raijinmode; index as i">
+        <input type="checkbox" id="scales" name="scales" [(ngModel)]="ougi.available">
+        <label for="scales">{{ougi.filename}}</label>
+        <span *ngIf="(i+1) % 9 == 0"><br></span>
+      </span>
+    </span>
+    <span *ngIf="mode == 'ToyamaCup'">
+      【雷神選択】
+      <select id="raijin" name="raijin" width="10em" [(ngModel)]="raijinnum">
+        <option *ngFor="let God of Raijin; index as i" value="{{i}}">{{God.Name}}【{{God.Ougi1}}{{God.Ougi2}}{{God.Ougi3}}】</option>
+      </select>
+      <button (click)="Toyama(raijinnum)" [disabled]="">決定</button>
+    </span>
+    <span *ngIf="mode == 'RaijinCup'">
+      <span>
+        【雷神戦】使用する奥義駒を選択してください。BAN機能<input type="checkbox" id="BAN" name="BAN" [(ngModel)]="isBAN">
+      </span>
+      <center>
+        奥義駒A:
+        <select id="ougiA" name="ougiA" width="10em" [(ngModel)]="GroupA">
+          <option *ngFor="let o of ougi_raijinmode" value="{{o.filename}}">{{o.filename}}</option>
+        </select>
+        奥義駒B:
+        <select id="ougiB" name="ougiB" width="10em" [(ngModel)]="GroupB">
+          <option *ngFor="let o of ougi_raijinmode" value="{{o.filename}}">{{o.filename}}</option>
+        </select>
+        奥義駒C:
+        <select id="ougiC" name="ougiC" width="10em" [(ngModel)]="GroupC">
+          <option *ngFor="let o of ougi_raijinmode" value="{{o.filename}}">{{o.filename}}</option>
+        </select>
+        <span>&nbsp;</span>
+        <button (click)="CreateOugi(GroupA,GroupB,GroupC)" [disabled]="">決定</button>
+      </center>
+    </span>
+    <span *ngIf="mode == 'TanabataCup'">
+      <span>
+        【七夕式】着席後、決定を押してください。
+      </span>
+        <button (click)="CreateOugi('織','彦','鵲')" [disabled]="">決定</button>
+    </span>
+    <hr />
+    【対戦時間】
+    <input class="number" type="number" min="0" max="60" [(ngModel)]="time.Playing.Minite">分
+    <input class="number" type="number" min="0" max="59" [(ngModel)]="time.Playing.Second">秒
+    <!--<br>
+  【駒数設定】
+  <br>
+  <span *ngFor="let ougi of otonashi; index as i">
+    {{ougi.filename}}
+    <input class="number" type="number" min="0" max="9" [(ngModel)]="ougi.quantity">
+    <span *ngIf="(i+1) % 4 == 0"><br></span>
+  </span>
+  <span *ngFor="let ougi of kotodama; index as i">
+    {{ougi.filename}}
+    <input class="number" type="number" min="0" max="9" [(ngModel)]="ougi.quantity">
+    <span *ngIf="(i+1) % 4 == 0"><br></span>
+  </span>-->
+  </details>
+  <hr />
+  <details>
+    <summary>
+      効果ガイド&emsp;盤上でクリックした駒をガイドしない<input type="checkbox" id="choose" name="choose" [(ngModel)]="myPeer.choose_Lock"><br>
+      <!--<select id="koma" name="koma" [(ngModel)]="myPeer.choose">
+      <option *ngFor="let koma of otonashi" value="{{koma.filename}}">{{koma.filename}}</option>
+      <option *ngFor="let koma of kotodama" value="{{koma.filename}}">{{koma.filename}}</option>
+      <option *ngFor="let koma of Ougi" value="{{koma.filename}}">{{koma.filename}}</option>
+      </select>-->
+      <!--<button style=" height: 2.2em;" (click)="Guide(koma)" [disabled]="">効果を見る</button>-->
+    </summary>
+    <span *ngFor="let ougi of kotodama; index as i">
+      <!--<input type="radio" value="{{ougi.filename}}" [(ngModel)]="myPeer.choose">-->
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide" *ngIf="myPeer.choose != ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Guide(ougi.filename)">
+      </label>
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide_gray-out" *ngIf="myPeer.choose == ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Guide(ougi.filename)">
+      </label>        <span *ngIf="(i+1) % 9 == 0"><br></span>
+    </span>
+    <br>
+    <span *ngFor="let ougi of ougi; index as i">
+      <!--<input type="radio" value="{{ougi.filename}}" [(ngModel)]="myPeer.choose">-->
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide" *ngIf="myPeer.choose != ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Guide(ougi.filename)">
+      </label>
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide_gray-out" *ngIf="myPeer.choose == ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Guide(ougi.filename)">
+      </label>
+      <span *ngIf="(i+1) % 9 == 0"><br></span>
+    </span>
+    <hr />
+    <span class="text">
+      <span *ngFor="let koma of otonashi;">
+        <span style=" white-space: pre-wrap" *ngIf="myPeer.choose == koma.filename">
+          駒の名称：{{koma.filename}}&emsp;駒の重さ：{{koma.weight}}&emsp;駒の枚数：{{koma.quantity}}個
+          <hr />
+          効果：{{koma.text}}
+        </span>
+      </span>
+      <span *ngFor="let koma of kotodama;">
+        <span style=" white-space: pre-wrap" *ngIf="myPeer.choose == koma.filename">
+          駒の名称：{{koma.filename}}&emsp;駒の重さ：{{koma.weight}}&emsp;駒の枚数：{{koma.quantity}}個
+          <hr />
+          効果：{{"" + koma.text}}
+        </span>
+      </span>
+      <span *ngFor="let koma of Ougi;">
+        <span style=" white-space: pre-wrap" *ngIf="myPeer.choose == koma.filename">
+          駒の名称：{{koma.filename}}&emsp;駒の重さ：{{koma.weight}}&emsp;駒の枚数：{{koma.quantity}}個
+          <hr />
+          効果：{{koma.text}}
+        </span>
+      </span>
+    </span>
+  </details>
+  <hr />
+  <!--<details>
+    <summary>
+      駒を表示する
+    </summary>
+    <span *ngFor="let ougi of otonashi; index as i">
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide" *ngIf="myPeer.choose != ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Sen(ougi.filename,'otonashi')">
+      </label>
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide_gray-out" *ngIf="myPeer.choose == ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Sen(ougi.filename,'otonashi')">
+      </label>        <span *ngIf="(i+1) % 9 == 0"><br></span>
+    </span>
+    <br>
+    <span *ngFor="let ougi of kotodama; index as i">
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide" *ngIf="myPeer.choose != ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Sen(ougi.filename,'kotodama')">
+      </label>
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide_gray-out" *ngIf="myPeer.choose == ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Sen(ougi.filename,'kotodama')">
+      </label>        <span *ngIf="(i+1) % 9 == 0"><br></span>
+    </span>
+    <br>
+    <span *ngFor="let ougi of ougi; index as i">
+      <input type="radio" value="{{ougi.filename}}" [(ngModel)]="myPeer.choose">
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide" *ngIf="myPeer.choose != ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Sen(ougi.filename,'ougi')">
+      </label>
+      <label for="ougi">
+        <img oncontextmenu="return false;" draggable="false" class="Guide_gray-out" *ngIf="myPeer.choose == ougi.filename" src="assets/images/raigo/{{ougi.filename}}.jpg" height="50" width="35" (click)="Sen(ougi.filename,'ougi')">
+      </label>
+      <span *ngIf="(i+1) % 9 == 0"><br></span>
+    </span>
+  </details>
+  <hr />-->
+  <!--<div>host ID:{{networkService.hostPeerID}}</div>-->
+  <div><span style="font-size: 12px;">{{help}}</span></div>
+  <ng-container *ngIf="!networkService.peerContext.isRoom">
+    <div style="font-size: 12px;" *ngIf="networkService.peerContexts.length < 1">※プライベート接続を使用する場合、自分のIDを相手に直接伝えて下さい。</div>
+    <!--<div style="font-size: 12px;" *ngIf="networkService.peerContexts.length < 1">※一人で動作確認を行いたい場合はブラウザを2つ開くと良いと思います。</div>-->
+    <!--<div style="font-size: 12px;" *ngIf="networkService.peerContexts.length < 1">※楽しかったらレビューをお願いします。</div>-->
+  </ng-container>
+  <ng-container *ngIf="networkService.peerContext.isRoom">
+    <div style="font-size: 12px;">※ルーム機能を利用している時はプライベート接続を利用できません。</div>
+  </ng-container>

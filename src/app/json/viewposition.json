@@ -1,0 +1,48 @@
+{
+  "DefaultViewPosition": {
+    "viewPositionX": -450,
+    "viewPositionY": -100,
+    "viewPositionZ": -850,
+    "viewRotateX": 25,
+    "viewRotateY": 0,
+    "viewRotateZ":-720
+  },
+
+  "ViewPositionMenu": [
+    {
+      "viewPositionX": -450,
+      "viewPositionY": -100,
+      "viewPositionZ": -850,
+      "viewRotateX": 25,
+      "viewRotateY": 0,
+      "viewRotateZ": -720
+    },
+    {
+      "menuName": "観戦用視点",
+      "viewposx": -177,
+      "viewposy": 0,
+      "viewposz": -1400,
+      "viewrotx": 0,
+      "viewroty": 0,
+      "viewrotz": 0
+    },
+    {
+      "menuName": "スマホ観戦用視点",
+      "viewposx": -770,
+      "viewposy": -100,
+      "viewposz": -4000,
+      "viewrotx": 0,
+      "viewroty": 0,
+      "viewrotz": 0
+    },
+    {
+      "menuName": "役スクショ用視点",
+      "viewposx": -645,
+      "viewposy": -633,
+      "viewposz": 230,
+      "viewrotx": 0,
+      "viewroty": 0,
+      "viewrotz": 0
+    }
+  ]
+}

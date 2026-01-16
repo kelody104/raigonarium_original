@@ -1,0 +1,88 @@
+{
+  "dice": [
+    {
+      "menuName": "1点",
+      "diceName": "陽玉（得点）",
+      "imagePathPrefix": "30_dice",
+      "point": "1",
+      "visible": true
+    },
+    {
+      "menuName": "2点",
+      "diceName": "陽玉（得点）",
+      "imagePathPrefix": "30_dice",
+      "point": "2",
+      "visible": true
+    },
+    {
+      "menuName": "3点",
+      "diceName": "陽玉（得点）",
+      "imagePathPrefix": "30_dice",
+      "point": "3",
+      "visible": true
+    },
+    {
+      "menuName": "4点",
+      "diceName": "陽玉（得点）",
+      "imagePathPrefix": "30_dice",
+      "point": "4",
+      "visible": true
+    },
+    {
+      "menuName": "5点",
+      "diceName": "陽玉（得点）",
+      "imagePathPrefix": "30_dice",
+      "point": "5",
+      "visible": true
+    },
+    {
+      "menuName": "6点",
+      "diceName": "陽玉（得点)",
+      "imagePathPrefix": "30_dice",
+      "point": "6",
+      "visible": true
+    },
+    {
+      "menuName": "7点",
+      "diceName": "陽玉（得点)",
+      "imagePathPrefix": "30_dice",
+      "point": "7",
+      "visible": true
+    },
+    {
+      "menuName": "8点",
+      "diceName": "陽玉（得点)",
+      "imagePathPrefix": "30_dice",
+      "point": "8",
+      "visible": true
+    },
+    {
+      "menuName": "9点",
+      "diceName": "陽玉（得点)",
+      "imagePathPrefix": "30_dice",
+      "point": "9",
+      "visible": false
+    },
+    {
+      "menuName": "10点",
+      "diceName": "陽玉（得点)",
+      "imagePathPrefix": "30_dice",
+      "point": "10",
+      "visible": true
+    },
+    {
+      "menuName": "11点",
+      "diceName": "陽玉（得点)",
+      "imagePathPrefix": "30_dice",
+      "point": "11",
+      "visible": true
+    },
+    {
+      "menuName": "12点",
+      "diceName": "陽玉（得点)",
+      "imagePathPrefix": "30_dice",
+      "point": "12",
+      "visible": true
+    }
+    ]
+}
