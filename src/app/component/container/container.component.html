@@ -1,0 +1,36 @@
+<div class="component is-3d is-pointer-events-none"
+  appMovable [movable.option]="movableOption" [movable.disable]="isLocked" (movable.ondragstart)="onMove()" (movable.ondragend)="onMoved()">
+  <div class="is-3d" appRotable [rotable.option]="rotableOption" (rotable.ondragstart)="onMove()" (rotable.ondragend)="onMoved()">
+    <div class="component-content is-3d is-pointer-events-auto"
+         [style.width.px]="width * gridSize"
+         [style.height.px]="height * gridSize"
+         [style.background-color]="backgroundColor"
+         (dragover)="onDragOver($event)"
+         (dragleave)="onDragLeave($event)"
+         (drop)="onDrop($event)"
+         [ngClass]="{'is-drag-over': isDragOver}">
+      <!-- START: HTML5 Drag & Drop Support (Added for Container feature) -->
+      <!-- END: HTML5 Drag & Drop Support -->
+      <div class="container-inner is-3d">
+        <div *ngIf="name.length" class="title is-pointer-events-none">{{name}} ({{itemCount}})</div>
+        <div class="contents is-pointer-events-auto">
+          <div *ngIf="itemCount === 0" class="empty-message">ここにドロップ</div>
+          <div *ngIf="cards.length > 0" class="items-section">
+            <div class="items-label">カード:</div>
+            <div *ngFor="let card of cards" class="item-badge">{{card.name}}</div>
+          </div>
+          <div *ngIf="cardStacks.length > 0" class="items-section">
+            <div class="items-label">カードスタック:</div>
+            <div *ngFor="let stack of cardStacks" class="item-badge">{{stack.name}}</div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!isLocked" class="rotate-grab of-left-top">
+        <i class="material-icons">autorenew</i>
+      </div>
+      <div *ngIf="!isLocked" class="rotate-grab of-right-top">
+        <i class="material-icons">autorenew</i>
+      </div>
+    </div>
+  </div>
+</div>

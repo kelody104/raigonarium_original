@@ -497,6 +497,20 @@ export class CardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.ngZone.run(() => this.dispatchCardDropEvent());
   }
 
+  // START: HTML5 Drag & Drop Support (Added for Container feature) - Can be removed to revert drag functionality
+  onHtml5DragStart(e: DragEvent) {
+    // HTML5 ドラッグ開始 - card データを設定
+    if (e.dataTransfer) {
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', this.card.identifier);
+    }
+  }
+
+  onHtml5DragEnd(e: DragEvent) {
+    // HTML5 ドラッグ終了
+  }
+  // END: HTML5 Drag & Drop Support
+
   dust(card: Card) {
     let cardstacks: CardStack[] = this.tabletopService.cardStacks;
     cardstacks = cardstacks.filter(stack => { return stack.name == "峡谷" && stack.komaname == this.card.komaname && stack.rotate == this.card.rotate; });

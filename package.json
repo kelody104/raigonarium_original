@@ -3,12 +3,12 @@
   "version": "1.14.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "ng": "cmd /s /c \"\"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \"./node_modules/@angular/cli/bin/ng\"\"",
+    "start": "cmd /s /c \"\"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \"./node_modules/@angular/cli/bin/ng\" serve\"",
+    "build": "cmd /s /c \"\"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \"./node_modules/@angular/cli/bin/ng\" build\"",
+    "test": "cmd /s /c \"\"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \"./node_modules/@angular/cli/bin/ng\" test\"",
+    "lint": "cmd /s /c \"\"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \"./node_modules/@angular/cli/bin/ng\" lint\"",
+    "e2e": "cmd /s /c \"\"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \"./node_modules/@angular/cli/bin/ng\" e2e\""
   },
   "private": true,
   "dependencies": {

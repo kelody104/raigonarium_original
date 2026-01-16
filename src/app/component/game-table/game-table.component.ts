@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostListener, NgZone, OnDestroy, 
 
 import { Card } from '@udonarium/card';
 import { CardStack } from '@udonarium/card-stack';
+import { Container } from '@udonarium/container';
 import { ImageFile } from '@udonarium/core/file-storage/image-file';
 import { GameObject } from '@udonarium/core/synchronize-object/game-object';
 import { EventSystem } from '@udonarium/core/system';
@@ -78,6 +79,7 @@ export class GameTableComponent implements OnInit, OnDestroy, AfterViewInit {
   get cardStacks(): CardStack[] { return this.tabletopService.cardStacks; }
   get terrains(): Terrain[] { return this.tabletopService.terrains; }
   get textNotes(): TextNote[] { return this.tabletopService.textNotes; }
+  get containers(): Container[] { return this.tabletopService.containers; }
   get diceSymbols(): DiceSymbol[] { return this.tabletopService.diceSymbols; }
   get peerCursors(): PeerCursor[] { return this.tabletopService.peerCursors; }
 

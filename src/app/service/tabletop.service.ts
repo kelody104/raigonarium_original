@@ -3,6 +3,7 @@ import { Card } from '@udonarium/card';
 import { CardStack } from '@udonarium/card-stack';
 import { ChatTab } from '@udonarium/chat-tab';
 import { ChatTabList } from '@udonarium/chat-tab-list';
+import { Container } from '@udonarium/container';
 import { ObjectSerializer } from '@udonarium/core/synchronize-object/object-serializer';
 import { ObjectStore } from '@udonarium/core/synchronize-object/object-store';
 import { EventSystem } from '@udonarium/core/system';
@@ -46,6 +47,11 @@ export class TabletopService {
   });
   private textNoteCache = new TabletopCache<TextNote>(() => ObjectStore.instance.getObjects(TextNote));
   private diceSymbolCache = new TabletopCache<DiceSymbol>(() => ObjectStore.instance.getObjects(DiceSymbol));
+  private containerCache = new TabletopCache<Container>(() => ObjectStore.instance.getObjects(Container).filter(obj => obj.isVisibleOnTable));
+  private playerGroupCache = new TabletopCache<GameCharacter>(() => {
+    return ObjectStore.instance.getObjects(GameCharacter)
+      .filter(char => char.isVisibleOnTable && char.location.name === 'table');
+  });
 
   get characters(): GameCharacter[] { return this.characterCache.objects; }
   get cards(): Card[] { return this.cardCache.objects; }
@@ -54,6 +60,8 @@ export class TabletopService {
   get terrains(): Terrain[] { return this.terrainCache.objects; }
   get textNotes(): TextNote[] { return this.textNoteCache.objects; }
   get diceSymbols(): DiceSymbol[] { return this.diceSymbolCache.objects; }
+  get containers(): Container[] { return this.containerCache.objects; }
+  get playerGroups(): GameCharacter[] { return this.playerGroupCache.objects; }
   get peerCursors(): PeerCursor[] { return ObjectStore.instance.getObjects<PeerCursor>(PeerCursor); }
 
   constructor(
@@ -103,6 +111,19 @@ export class TabletopService {
           ChatTabList.instance.addChatTab(gameObject);
         }
       });
+    
+    // テスト用コンテナを作成
+    setTimeout(() => {
+      if (ObjectStore.instance.getObjects(Container).length === 0) {
+        this.addContainer('TestContainer', 5, 5);
+      }
+    }, 1000);
+  }
+
+  addContainer(name: string = 'Container', width: number = 4, height: number = 4): Container {
+    let container = Container.create(name, width, height);
+    container.setLocation('table');
+    return container;
   }
 
   private findCache(aliasName: string): TabletopCache<any> {
@@ -121,6 +142,8 @@ export class TabletopService {
         return this.textNoteCache;
       case DiceSymbol.aliasName:
         return this.diceSymbolCache;
+      case Container.aliasName:
+        return this.containerCache;
       default:
         return null;
     }
@@ -139,6 +162,8 @@ export class TabletopService {
     this.terrainCache.refresh();
     this.textNoteCache.refresh();
     this.diceSymbolCache.refresh();
+    this.containerCache.refresh();
+    this.playerGroupCache.refresh();
     this.clearMap();
   }
 
@@ -164,6 +189,9 @@ export class TabletopService {
         if (gameObject instanceof Terrain) gameObject.isLocked = false;
         if (!this.tableSelecter || !this.tableSelecter.viewTable) return;
         this.tableSelecter.viewTable.appendChild(gameObject);
+        break;
+      case Container.aliasName:
+        gameObject.setLocation('table');
         break;
       default:
         gameObject.setLocation('table');

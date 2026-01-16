@@ -1,5 +1,10 @@
+<!-- START: HTML5 Drag & Drop Support (Added for Container feature) -->
 <div class="component is-3d is-pointer-events-none is-grab" [style.width.px]="size * gridSize"
+     draggable="true"
+     (dragstart)="onHtml5DragStart($event)"
+     (dragend)="onHtml5DragEnd($event)"
      appMovable [movable.option]="movableOption" (movable.ondragstart)="onMove()" (movable.ondragend)="onMoved()">
+  <!-- END: HTML5 Drag & Drop Support -->
   <div class="component-content is-pointer-events-auto"
        appRotable [rotable.option]="rotableOption" (rotable.ondragstart)="onMove()" (rotable.ondragend)="onMoved()">
     <img *ngIf="!isGod && !isHand && imageFile" class="card-image" [src]="(isFront ? frontImage.url : backImage.url) | safe: 'resourceUrl'">
