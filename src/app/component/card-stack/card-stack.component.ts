@@ -721,8 +721,8 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private FumakeStack(times) {
     let FuStack = CardStack.create('風');
-    FuStack.location.x = Coodinate.Common.FrontDeck.PositionX;
-    FuStack.location.y = Coodinate.Common.FrontDeck.PositionY;
+    FuStack.location.x = (Coodinate as any).Common.FrontDeck.PositionX;
+    FuStack.location.y = (Coodinate as any).Common.FrontDeck.PositionY;
     FuStack.posZ = this.cardStack.posZ;
     FuStack.location.name = this.cardStack.location.name;
     FuStack.rotate = 0;
@@ -898,7 +898,7 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
       //}
       //dice.rotate = degree;
     } else {
-      await new Promise(resolve => setTimeout(resolve, Time.Waiting))
+      await new Promise(resolve => setTimeout(resolve, (Time as any).Waiting))
       let cards: Card[] = this.tabletopService.cards;
       cards = cards.filter(card => { return card.location.x == pos.x && card.rotate == degree });
       for (let card of cards) {

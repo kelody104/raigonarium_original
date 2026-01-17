@@ -79,16 +79,16 @@ export class CardStackListComponent implements OnInit, OnDestroy {
 
     switch (this.tabletopActionService.CalcObjectRotate(PeerCursor.myCursor.RotZ)) {
       case 0:
-        card.location.x = Coodinate.Player1.Drawcard[0].PositionX;
-        card.location.y = Coodinate.Player1.Drawcard[0].PositionY;
-        card.rotate = Coodinate.Player1.Drawcard[0].Rotate;
+        card.location.x = (Coodinate as any).Player1.Drawcard[0].PositionX;
+        card.location.y = (Coodinate as any).Player1.Drawcard[0].PositionY;
+        card.rotate = (Coodinate as any).Player1.Drawcard[0].Rotate;
         card.setLocation(this.cardStack.location.name);
         card.owner = Network.peerContext.userId;
         break;
       case 180:
-        card.location.x = Coodinate.Player2.Drawcard[0].PositionX;
-        card.location.y = Coodinate.Player2.Drawcard[0].PositionY;
-        card.rotate = Coodinate.Player2.Drawcard[0].Rotate;
+        card.location.x = (Coodinate as any).Player2.Drawcard[0].PositionX;
+        card.location.y = (Coodinate as any).Player2.Drawcard[0].PositionY;
+        card.rotate = (Coodinate as any).Player2.Drawcard[0].Rotate;
         card.setLocation(this.cardStack.location.name);
         card.owner = Network.peerContext.userId;
         break;
