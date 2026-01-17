@@ -10,6 +10,8 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "importHelpers": true,
     "target": "ES2022",
     "module": "es2020",
@@ -51,7 +53,6 @@
       "gapi.auth2",
       "gapi.client",
       "gapi.client.sheets",
-      "googleapis",
       "jest"
     ],
     "useDefineForClassFields": false

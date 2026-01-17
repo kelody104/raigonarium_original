@@ -23,7 +23,8 @@ import { ResettableTimeout } from '@udonarium/core/system/util/resettable-timeou
 import { setZeroTimeout } from '@udonarium/core/system/util/zero-timeout';
 
 import { PanelService } from 'service/panel.service';
-import { chatmassage } from 'json/chatmassage.json';
+import chatmassageData from 'json/chatmassage.json';
+const chatmassage = (chatmassageData as any)?.chatmassage || chatmassageData as any;
 
 type ScrollPosition = { top: number, bottom: number, clientHeight: number, scrollHeight: number, };
 

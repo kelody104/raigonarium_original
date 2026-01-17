@@ -16,11 +16,20 @@ import { TabletopActionService } from 'service/tabletop-action.service';
 import { PointerDeviceService } from 'service/pointer-device.service';
 import { ContextMenuService, ContextMenuAction } from 'service/context-menu.service';
 import DiscordWebhook, { Webhook } from 'discord-webhook-ts';
-import { Status } from 'json/status.json';
+import statusData from 'json/status.json';
+const Status = (statusData as any)?.Status || statusData as any;
 import { SoundEffect, PresetSound } from '../../class/sound-effect';
 import { halfsize, otonashi, kotodama, ougi } from 'json/kisekigoma.json';
-import { kuze, yakumo, rakura, hisetsu, shigure, tobari, other } from 'json/player_.json';
-import { raijin } from 'json/raijin.json';
+import playerData from 'json/player_.json';
+const kuze = (playerData as any)?.kuze || playerData as any;
+const yakumo = (playerData as any)?.yakumo || playerData as any;
+const rakura = (playerData as any)?.rakura || playerData as any;
+const hisetsu = (playerData as any)?.hisetsu || playerData as any;
+const shigure = (playerData as any)?.shigure || playerData as any;
+const tobari = (playerData as any)?.tobari || playerData as any;
+const other = (playerData as any)?.other || playerData as any;
+import raijinData from 'json/raijin.json';
+const raijin = (raijinData as any)?.raijin || raijinData as any;
 import { CardStack } from '../../class/card-stack';
 import { Rank,Time } from 'json/parameter.json';
 
@@ -63,13 +72,13 @@ export class PeerMenuComponent implements OnInit, OnDestroy, AfterViewInit {
   get Raijin() {
     return raijin.filter(r => r.available == true);
   }
-  get otonashi() { return otonashi.filter(o => o.visible == true); }
-  get kotodama() { return kotodama.filter(o => o.visible == true); }
-  get ougi() { return ougi.filter(o => o.visible == true); }
-  get ougi_raijinmode() { return ougi.filter(o => o.visible == true && o.raijinmode == true); }
+  get otonashi() { return (otonashi as any)?.filter ? (otonashi as any).filter(o => o.visible == true) : []; }
+  get kotodama() { return (kotodama as any)?.filter ? (kotodama as any).filter(o => o.visible == true) : []; }
+  get ougi() { return (ougi as any)?.filter ? (ougi as any).filter(o => o.visible == true) : []; }
+  get ougi_raijinmode() { return (ougi as any)?.filter ? (ougi as any).filter(o => o.visible == true && o.raijinmode == true) : []; }
   get isConvention(): boolean { return Status.ConventionMode; }
-  get Rank() { return Rank; }
-  get time() { return Time; }
+  get Rank() { return (Rank as any); }
+  get time() { return (Time as any); }
 
   constructor(
     private ngZone: NgZone,
@@ -164,7 +173,7 @@ export class PeerMenuComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async reset_tanabata(Raijinmode) {
-    otonashi[6].quantity = 3;
+    (otonashi as any)[6].quantity = 3;
     var res = confirm("フィールドをゲーム開始前の状態にします。\n本当によろしいですか？");
     if (res == true) {
       console.log(this.time_min);
@@ -183,7 +192,7 @@ export class PeerMenuComponent implements OnInit, OnDestroy, AfterViewInit {
       //this.getCSV();
       //this.upload();
     }
-    otonashi[6].quantity = 4;
+    (otonashi as any)[6].quantity = 4;
   }
 
   Recruitment() {
@@ -310,7 +319,7 @@ export class PeerMenuComponent implements OnInit, OnDestroy, AfterViewInit {
 
   judgedesign(r: string) {
     let design: string = "temp[1]";
-    this.Rank.forEach(r => {
+    (this.Rank as any)?.forEach((r: any) => {
       if (this.myPeer.Rank == r.name) design = r.plate;
     })
     return design;

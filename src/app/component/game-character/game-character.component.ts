@@ -24,7 +24,8 @@ import { PanelOption, PanelService } from 'service/panel.service';
 import { PointerDeviceService } from 'service/pointer-device.service';
 import { PeerCursor } from '../../class/peer-cursor';
 
-import { Status } from 'json/status.json';
+import statusData from 'json/status.json';
+const Status = (statusData as any)?.Status || statusData as any;
 
 @Component({
   selector: 'game-character',

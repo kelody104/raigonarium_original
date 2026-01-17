@@ -1,5 +1,5 @@
 import * as WordArray from 'crypto-js/lib-typedarrays';
-import * as SHA256 from 'crypto-js/sha256';
+import SHA256 from 'crypto-js/sha256';
 
 export namespace FileReaderUtil {
   export function readAsArrayBufferAsync(blob: Blob): Promise<ArrayBuffer> {

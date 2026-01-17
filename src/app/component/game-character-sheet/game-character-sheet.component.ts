@@ -11,7 +11,8 @@ import { ModalService } from 'service/modal.service';
 import { PanelService } from 'service/panel.service';
 import { SaveDataService } from 'service/save-data.service';
 
-import { Status } from 'json/status.json';
+import statusData from 'json/status.json';
+const Status = (statusData as any)?.Status || statusData as any;
 
 @Component({
   selector: 'game-character-sheet',

@@ -27,8 +27,11 @@ import { GridLineRender } from './grid-line-render';
 import { TableMouseGesture } from './table-mouse-gesture';
 import { TableTouchGesture } from './table-touch-gesture';
 
-import { Status } from 'json/status.json';
-import { DefaultViewPosition, ViewPositionMenu } from 'json/viewposition.json';
+import statusData from 'json/status.json';
+const Status = (statusData as any)?.Status || statusData as any;
+import viewPositionData from 'json/viewposition.json';
+const DefaultViewPosition = (viewPositionData as any)?.DefaultViewPosition || viewPositionData as any;
+const ViewPositionMenu = (viewPositionData as any)?.ViewPositionMenu || viewPositionData as any;
 
 @Component({
   selector: 'game-table',

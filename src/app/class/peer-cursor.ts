@@ -4,7 +4,8 @@ import { SyncObject, SyncVar } from './core/synchronize-object/decorator';
 import { GameObject, ObjectContext } from './core/synchronize-object/game-object';
 import { ObjectStore } from './core/synchronize-object/object-store';
 import { EventSystem, Network } from './core/system';
-import { Status } from 'json/status.json';
+import statusData from 'json/status.json';
+const Status = (statusData as any)?.Status || statusData as any;
 
 type UserId = string;
 type PeerId = string;

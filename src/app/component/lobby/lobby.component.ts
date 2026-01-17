@@ -10,7 +10,8 @@ import { RoomSettingComponent } from 'component/room-setting/room-setting.compon
 import { ModalService } from 'service/modal.service';
 import { PanelService } from 'service/panel.service';
 import { TabletopActionService } from 'service/tabletop-action.service';
-import { Status } from 'json/status.json';
+import statusData from 'json/status.json';
+const Status = (statusData as any)?.Status || statusData as any;
 import { SoundEffect, PresetSound } from '../../class/sound-effect';
 
 @Component({

@@ -100,7 +100,7 @@ export class CardStackListComponent implements OnInit, OnDestroy {
     if (this.cardStack.name == "風") {
       this.cardStack.faceUpAll();
       let cardstacks: CardStack[] = this.tabletopService.cardStacks;
-      cardstacks = cardstacks.filter(stack => { return stack.location.x == Coodinate.Common.FrontDeck.PositionX && stack.location.y == Coodinate.Common.FrontDeck.PositionY; });
+      cardstacks = cardstacks.filter(stack => { return stack.location.x == (Coodinate as any).Common.FrontDeck.PositionX && stack.location.y == (Coodinate as any).Common.FrontDeck.PositionY; });
 
       for (let stack of cardstacks) {
         if (stack != this.cardStack) {

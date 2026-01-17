@@ -31,7 +31,8 @@ import { TabletopService } from 'service/tabletop.service';
 import { TabletopActionService } from 'service/tabletop-action.service';
 import { ImageStorage } from '../../class/core/file-storage/image-storage';
 import { Card } from '../../class/card';
-import { Status } from 'json/status.json';
+import statusData from 'json/status.json';
+const Status = (statusData as any)?.Status || statusData as any;
 
 @Component({
   selector: 'dice-symbol',

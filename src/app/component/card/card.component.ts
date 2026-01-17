@@ -29,7 +29,8 @@ import { PointerDeviceService } from 'service/pointer-device.service';
 import { TabletopService } from 'service/tabletop.service';
 import { TabletopActionService } from 'service/tabletop-action.service';
 
-import { Status } from 'json/status.json';
+import statusData from 'json/status.json';
+const Status = (statusData as any)?.Status || statusData as any;
 import { ougi } from 'json/kisekigoma.json';
 import { Time,Coodinate } from 'json/parameter.json';
 
@@ -197,10 +198,10 @@ export class CardComponent implements OnInit, OnDestroy, AfterViewInit {
             SoundEffect.play(PresetSound.cardDraw);
             if (this.state == CardState.FRONT && this.card.weight != 9) {
               for (let i = 0; i < 3; i++) {
-                if (this.card.location.x == Coodinate.Player1.tower[i][0].PositionX && this.card.location.y == Coodinate.Player1.tower[i][0].PositionY) {
+                if (this.card.location.x == (Coodinate as any).Player1.tower[i][0].PositionX && this.card.location.y == (Coodinate as any).Player1.tower[i][0].PositionY) {
                   this.ZanBottom(this.card); return;
                 }
-                else if (this.card.location.x == Coodinate.Player2.tower[i][0].PositionX && this.card.location.y == Coodinate.Player2.tower[i][0].PositionY) {
+                else if (this.card.location.x == (Coodinate as any).Player2.tower[i][0].PositionX && this.card.location.y == (Coodinate as any).Player2.tower[i][0].PositionY) {
                   this.ZanBottom(this.card); return;
                 }
               }
@@ -392,7 +393,7 @@ export class CardComponent implements OnInit, OnDestroy, AfterViewInit {
           }
         });
 
-        if (ougi[10].available == true && this.name == "葵石駒") {
+        if ((ougi as any)[10]?.available == true && this.name == "葵石駒") {
           actions.push({
             name: '【零】の効果で山札を作る', action: () => {
               this.createStack_st(true, true);
@@ -558,8 +559,8 @@ export class CardComponent implements OnInit, OnDestroy, AfterViewInit {
       let towername = '零';
       if (state_FRONT == false) towername = '雷山';
       let cardStack = CardStack.create(towername);
-      cardStack.location.x = Coodinate.Common.FrontDeck.PositionX;
-      cardStack.location.y = Coodinate.Common.FrontDeck.PositionY;
+      cardStack.location.x = (Coodinate as any).Common.FrontDeck.PositionX;
+      cardStack.location.y = (Coodinate as any).Common.FrontDeck.PositionY;
       cardStack.posZ = 0;
       //cardStack.location.name = this.card.location.name;
       cardStack.rotate = 0;

@@ -45,7 +45,8 @@ import { TabletopService } from 'service/tabletop.service';
 import { TabletopActionService } from 'service/tabletop-action.service';
 import { GameTable } from './class/game-table';
 
-import { Status } from 'json/status.json';
+import statusData from 'json/status.json';
+const Status = (statusData as any)?.Status || statusData as any;
 import { PeerContext } from './class/core/system/network/peer-context';
 import { PasswordCheckComponent } from './component/password-check/password-check.component';
 import { DiceSymbol } from './class/dice-symbol';
@@ -521,7 +522,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   Discord(PlayerA, text_A: string, PlayerB, text_B: string) {
     let DiscordURL : string = null;
-    Discord.forEach(dis => {
+    (Discord as any)?.forEach((dis: any) => {
       if (dis.GameRoom == Network.peerContext.roomName) DiscordURL = dis.WebHook;
     })
     const discordClient = new DiscordWebhook(DiscordURL);
