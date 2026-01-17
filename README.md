@@ -57,7 +57,15 @@
 開発環境を用意してビルドする必要があります。
 
 ### 開発環境
-[Node.js](https://nodejs.org/)と[npm](https://www.npmjs.com/)が必要です。  
+[Node.js](https://nodejs.org/)と[npm](https://www.npmjs.com/)が必要です。
+
+**推奨バージョン（2026年1月17日時点で最新）:**
+- Node.js: v20.18.0 以上
+- npm: 10.x 以上
+
+**更新前のバージョン（参考）:**
+- Node.js: v16.20.2
+- npm: 7.24.2
 
 言語はTypeScriptを用い、[Angular](https://angular.io/)で実装されています。  
 開発を効率化するCLIツールとして[Angular CLI](https://github.com/angular/angular-cli)を利用しています。

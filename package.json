@@ -2,9 +2,13 @@
   "name": "udonarium",
   "version": "1.14.0",
   "license": "MIT",
+  "engines": {
+    "node": ">=20.18.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --ssl",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
