@@ -19,7 +19,7 @@ import DiscordWebhook, { Webhook } from 'discord-webhook-ts';
 import statusData from 'json/status.json';
 const Status = (statusData as any)?.Status || statusData as any;
 import { SoundEffect, PresetSound } from '../../class/sound-effect';
-import { halfsize, otonashi, kotodama, ougi } from 'json/kisekigoma.json';
+import kisekigomaData from 'json/kisekigoma.json';
 import playerData from 'json/player_.json';
 const kuze = (playerData as any)?.kuze || playerData as any;
 const yakumo = (playerData as any)?.yakumo || playerData as any;
@@ -31,7 +31,7 @@ const other = (playerData as any)?.other || playerData as any;
 import raijinData from 'json/raijin.json';
 const raijin = (raijinData as any)?.raijin || raijinData as any;
 import { CardStack } from '../../class/card-stack';
-import { Rank,Time } from 'json/parameter.json';
+import parameterData from 'json/parameter.json';
 
 @Component({
   selector: 'peer-menu',
@@ -47,9 +47,9 @@ export class PeerMenuComponent implements OnInit, OnDestroy, AfterViewInit {
   password: string = "";
   help: string = '';
   mode: string = 'Raigo';
- // Otonashi = otonashi;
- // Kotodama = kotodama;
-  Ougi = ougi;
+ // Otonashi = (kisekigomaData as any).otonashi;
+ // Kotodama = (kisekigomaData as any).kotodama;
+  Ougi = ((kisekigomaData as any).ougi);
   Category: string = "kotodama";
   koma: string = null;
   selected: string = null;
@@ -72,13 +72,13 @@ export class PeerMenuComponent implements OnInit, OnDestroy, AfterViewInit {
   get Raijin() {
     return raijin.filter(r => r.available == true);
   }
-  get otonashi() { return (otonashi as any)?.filter ? (otonashi as any).filter(o => o.visible == true) : []; }
-  get kotodama() { return (kotodama as any)?.filter ? (kotodama as any).filter(o => o.visible == true) : []; }
-  get ougi() { return (ougi as any)?.filter ? (ougi as any).filter(o => o.visible == true) : []; }
-  get ougi_raijinmode() { return (ougi as any)?.filter ? (ougi as any).filter(o => o.visible == true && o.raijinmode == true) : []; }
+  get otonashi() { return ((kisekigomaData as any).otonashi as any)?.filter ? ((kisekigomaData as any).otonashi as any).filter(o => o.visible == true) : []; }
+  get kotodama() { return ((kisekigomaData as any).kotodama as any)?.filter ? ((kisekigomaData as any).kotodama as any).filter(o => o.visible == true) : []; }
+  get ougi() { return ((kisekigomaData as any).ougi as any)?.filter ? ((kisekigomaData as any).ougi as any).filter(o => o.visible == true) : []; }
+  get ougi_raijinmode() { return ((kisekigomaData as any).ougi as any)?.filter ? ((kisekigomaData as any).ougi as any).filter(o => o.visible == true && o.raijinmode == true) : []; }
   get isConvention(): boolean { return Status.ConventionMode; }
-  get Rank() { return (Rank as any); }
-  get time() { return (Time as any); }
+  get Rank() { return ((parameterData as any).Rank); }
+  get time() { return ((parameterData as any).Time); }
 
   constructor(
     private ngZone: NgZone,

@@ -13,7 +13,7 @@ import { GameCharacterSheetComponent } from 'component/game-character-sheet/game
 import { PanelOption, PanelService } from 'service/panel.service';
 import { TabletopService } from 'service/tabletop.service';
 
-import { Coodinate } from 'json/parameter.json';
+import parameterData from 'json/parameter.json';
 
 @Component({
   selector: 'card-stack-list',

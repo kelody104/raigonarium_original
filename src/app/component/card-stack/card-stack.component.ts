@@ -35,8 +35,8 @@ import { Terrain } from '../../class/terrain';
 
 import statusData from 'json/status.json';
 const Status = (statusData as any)?.Status || statusData as any;
-import { ougi } from 'json/kisekigoma.json';
-import { Time,Coodinate } from 'json/parameter.json';
+import kisekigomaData from 'json/kisekigoma.json';
+import parameterData from 'json/parameter.json';
 import { TextNote } from '../../class/text-note';
 
 @Component({
@@ -680,15 +680,15 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
       this.cardStack.update(); // todo
       switch (this.tabletopActionService.CalcObjectRotate(PeerCursor.myCursor.RotZ)) {
         case 0:
-          card.location.x = (Coodinate as any).Player1.Drawcard[number-1].PositionX;
-          card.location.y = (Coodinate as any).Player1.Drawcard[number-1].PositionY;
-          card.rotate = (Coodinate as any).Player1.Drawcard[number-1].Rotate;
+          card.location.x = ((parameterData as any).Coodinate).Player1.Drawcard[number-1].PositionX;
+          card.location.y = ((parameterData as any).Coodinate).Player1.Drawcard[number-1].PositionY;
+          card.rotate = ((parameterData as any).Coodinate).Player1.Drawcard[number-1].Rotate;
           card.setLocation(this.cardStack.location.name);
           break;
         case 180:
-          card.location.x = (Coodinate as any).Player2.Drawcard[number-1].PositionX;
-          card.location.y = (Coodinate as any).Player2.Drawcard[number-1].PositionY;
-          card.rotate = (Coodinate as any).Player2.Drawcard[number-1].Rotate;
+          card.location.x = ((parameterData as any).Coodinate).Player2.Drawcard[number-1].PositionX;
+          card.location.y = ((parameterData as any).Coodinate).Player2.Drawcard[number-1].PositionY;
+          card.rotate = ((parameterData as any).Coodinate).Player2.Drawcard[number-1].Rotate;
           card.setLocation(this.cardStack.location.name);
           break;
         default:
@@ -721,8 +721,8 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private FumakeStack(times) {
     let FuStack = CardStack.create('風');
-    FuStack.location.x = (Coodinate as any).Common.FrontDeck.PositionX;
-    FuStack.location.y = (Coodinate as any).Common.FrontDeck.PositionY;
+    FuStack.location.x = ((parameterData as any).Coodinate).Common.FrontDeck.PositionX;
+    FuStack.location.y = ((parameterData as any).Coodinate).Common.FrontDeck.PositionY;
     FuStack.posZ = this.cardStack.posZ;
     FuStack.location.name = this.cardStack.location.name;
     FuStack.rotate = 0;
@@ -794,7 +794,7 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
       case 0:
         sign = { x: 0, y: 1 };
         dice = { x: 0.5, y: -0.5 };
-        pos = { x: (Coodinate as any).Player1.Kaihouroku[0].PositionX, y: (Coodinate as any).Player1.Kaihouroku[0].PositionY };
+        pos = { x: ((parameterData as any).Coodinate).Player1.Kaihouroku[0].PositionX, y: ((parameterData as any).Coodinate).Player1.Kaihouroku[0].PositionY };
         name = { x: 1, y: 0 };
         break;
 
@@ -808,7 +808,7 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
       case 180:
         sign = { x: 0, y: -1 };
         dice = { x: 0.2, y: 2.4 };
-        pos = { x: (Coodinate as any).Player2.Kaihouroku[0].PositionX, y: (Coodinate as any).Player2.Kaihouroku[0].PositionY };
+        pos = { x: ((parameterData as any).Coodinate).Player2.Kaihouroku[0].PositionX, y: ((parameterData as any).Coodinate).Player2.Kaihouroku[0].PositionY };
         name = { x: -0.3, y: -7.2 };
         break;
 

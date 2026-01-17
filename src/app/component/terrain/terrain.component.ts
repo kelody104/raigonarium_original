@@ -32,7 +32,7 @@ import { PeerCursor } from '@udonarium/peer-cursor';
 import { DiceSymbol } from '../../class/dice-symbol';
 import statusData from 'json/status.json';
 const Status = (statusData as any)?.Status || statusData as any;
-import { otonashi, kotodama, ougi } from 'json/kisekigoma.json';
+import kisekigomaData from 'json/kisekigoma.json';
 
 @Component({
   selector: 'terrain',

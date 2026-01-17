@@ -54,7 +54,7 @@ import { Terrain } from './class/terrain';
 import DiscordWebhook, { Webhook } from 'discord-webhook-ts';
 import { ChatTab } from './class/chat-tab';
 import { ChatMessage } from './class/chat-message';
-import { Discord } from 'json/parameter.json';
+import parameterData from 'json/parameter.json';
 import { CardStack } from './class/card-stack';
 
 @Component({
@@ -522,7 +522,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   Discord(PlayerA, text_A: string, PlayerB, text_B: string) {
     let DiscordURL : string = null;
-    (Discord as any)?.forEach((dis: any) => {
+    ((parameterData as any)?.Discord as any)?.forEach((dis: any) => {
       if (dis.GameRoom == Network.peerContext.roomName) DiscordURL = dis.WebHook;
     })
     const discordClient = new DiscordWebhook(DiscordURL);
