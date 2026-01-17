@@ -96,7 +96,7 @@ export class PeerMenuComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   checkall(flag: boolean) {
-    for (let kiseki of ougi) {
+    for (let kiseki of (kisekigomaData as any).ougi) {
       if (kiseki.visible) {
         if (flag) kiseki.available = true;
         else kiseki.available = false;
@@ -173,7 +173,7 @@ export class PeerMenuComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async reset_tanabata(Raijinmode) {
-    (otonashi as any)[6].quantity = 3;
+    ((kisekigomaData as any).otonashi as any)[6].quantity = 3;
     var res = confirm("フィールドをゲーム開始前の状態にします。\n本当によろしいですか？");
     if (res == true) {
       console.log(this.time_min);
@@ -192,7 +192,7 @@ export class PeerMenuComponent implements OnInit, OnDestroy, AfterViewInit {
       //this.getCSV();
       //this.upload();
     }
-    (otonashi as any)[6].quantity = 4;
+    ((kisekigomaData as any).otonashi as any)[6].quantity = 4;
   }
 
   Recruitment() {

@@ -343,7 +343,7 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
         });
 
         //actions.push({ name: `【浄】の効果で引く`, action: null, subActions: subActions_Jodraw });
-        if ((ougi as any)[31]?.available == true) {
+        if (((kisekigomaData as any).ougi as any)[31]?.available == true) {
           actions.push(ContextMenuSeparator);
           actions.push({ name: `【風】の効果で見る`, action: null, subActions: subActions_Fumake });
           // actions.push(ContextMenuSeparator);
@@ -398,7 +398,7 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         actions.push({ name: `豪雷を含む解放`, action: null, subActions: subActions_Gora });
 
-        if ((ougi as any)[35]?.available == true && this.cardStack.cards.length < 6) {
+        if (((kisekigomaData as any).ougi as any)[35]?.available == true && this.cardStack.cards.length < 6) {
           let subActions_Jin: ContextMenuAction[] = [];
           let Jin: string[] = ["桜花", "蓮花", "奇数蓮花", "偶数蓮花"];
           for (let i = 0; i <= 3; i++) {
@@ -410,16 +410,16 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
           }
           actions.push({ name: `【神】による解放`, action: null, subActions: subActions_Jin });
         }
-        if ((ougi as any)[32]?.available == true && this.cardStack.cards.length < 6) {
+        if (((kisekigomaData as any).ougi as any)[32]?.available == true && this.cardStack.cards.length < 6) {
           actions.push({ name: `【凛】による解放`, action: () => this.breakTower(null, null, true) });
         }
-        if ((ougi as any)[3]?.available == true && this.cardStack.cards.length < 6) {
+        if (((kisekigomaData as any).ougi as any)[3]?.available == true && this.cardStack.cards.length < 6) {
           actions.push({ name: `【和】による解放`, action: () => this.breakTower(null, null, null, true) });
         }
-        if ((ougi as any)[17]?.available == true && this.cardStack.cards.length < 5) {
+        if (((kisekigomaData as any).ougi as any)[17]?.available == true && this.cardStack.cards.length < 5) {
           actions.push({ name: `【麗】による解放`, action: () => this.breakTower(null, null, null, null, true) });
         }
-        if ((ougi as any)[41]?.visible == true && this.cardStack.cards.length == 3) {
+        if (((kisekigomaData as any).ougi as any)[41]?.visible == true && this.cardStack.cards.length == 3) {
           actions.push({ name: `【鵲】による解放`, action: () => this.breakTower(null, null, null, null, null, null, true) });
         }
       } else if (this.name == "名札") {
@@ -898,7 +898,7 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
       //}
       //dice.rotate = degree;
     } else {
-      await new Promise(resolve => setTimeout(resolve, (Time as any).Waiting))
+      await new Promise(resolve => setTimeout(resolve, ((parameterData as any).Time as any).Waiting))
       let cards: Card[] = this.tabletopService.cards;
       cards = cards.filter(card => { return card.location.x == pos.x && card.rotate == degree });
       for (let card of cards) {
@@ -1051,7 +1051,7 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
     this.cardStack.setLocation('graveyard');
     this.cardStack.destroy();
     if (Flag == true) {
-      await new Promise(resolve => setTimeout(resolve, (Time as any).Waiting))
+      await new Promise(resolve => setTimeout(resolve, ((parameterData as any).Time as any).Waiting))
       cards = cards.filter(card => { return card.location.x == coodinate && card.rotate == degree });
       for (let card of cards) {
         this.dust(card);

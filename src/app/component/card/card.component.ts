@@ -680,7 +680,7 @@ export class CardComponent implements OnInit, OnDestroy, AfterViewInit {
   async ZanBottom(card: Card) {
     card.state = CardState.FRONT;
     SoundEffect.play(PresetSound.cardDraw);
-    await new Promise(resolve => setTimeout(resolve, (Time as any).Waiting))
+    await new Promise(resolve => setTimeout(resolve, ((parameterData as any).Time as any).Waiting))
     let PosX = card.location.x;
     let Rot = card.rotate;
     let cardstacks: CardStack[] = this.tabletopService.cardStacks;

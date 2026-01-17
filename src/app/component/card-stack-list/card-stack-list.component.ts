@@ -79,16 +79,16 @@ export class CardStackListComponent implements OnInit, OnDestroy {
 
     switch (this.tabletopActionService.CalcObjectRotate(PeerCursor.myCursor.RotZ)) {
       case 0:
-        card.location.x = (Coodinate as any).Player1.Drawcard[0].PositionX;
-        card.location.y = (Coodinate as any).Player1.Drawcard[0].PositionY;
-        card.rotate = (Coodinate as any).Player1.Drawcard[0].Rotate;
+        card.location.x = ((parameterData as any).Coodinate as any).Player1.Drawcard[0].PositionX;
+        card.location.y = ((parameterData as any).Coodinate as any).Player1.Drawcard[0].PositionY;
+        card.rotate = ((parameterData as any).Coodinate as any).Player1.Drawcard[0].Rotate;
         card.setLocation(this.cardStack.location.name);
         card.owner = Network.peerContext.userId;
         break;
       case 180:
-        card.location.x = (Coodinate as any).Player2.Drawcard[0].PositionX;
-        card.location.y = (Coodinate as any).Player2.Drawcard[0].PositionY;
-        card.rotate = (Coodinate as any).Player2.Drawcard[0].Rotate;
+        card.location.x = ((parameterData as any).Coodinate as any).Player2.Drawcard[0].PositionX;
+        card.location.y = ((parameterData as any).Coodinate as any).Player2.Drawcard[0].PositionY;
+        card.rotate = ((parameterData as any).Coodinate as any).Player2.Drawcard[0].Rotate;
         card.setLocation(this.cardStack.location.name);
         card.owner = Network.peerContext.userId;
         break;
@@ -100,7 +100,7 @@ export class CardStackListComponent implements OnInit, OnDestroy {
     if (this.cardStack.name == "風") {
       this.cardStack.faceUpAll();
       let cardstacks: CardStack[] = this.tabletopService.cardStacks;
-      cardstacks = cardstacks.filter(stack => { return stack.location.x == (Coodinate as any).Common.FrontDeck.PositionX && stack.location.y == (Coodinate as any).Common.FrontDeck.PositionY; });
+      cardstacks = cardstacks.filter(stack => { return stack.location.x == ((parameterData as any).Coodinate as any).Common.FrontDeck.PositionX && stack.location.y == ((parameterData as any).Coodinate as any).Common.FrontDeck.PositionY; });
 
       for (let stack of cardstacks) {
         if (stack != this.cardStack) {
