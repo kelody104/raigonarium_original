@@ -11,7 +11,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "importHelpers": true,
-    "target": "es5",
+    "target": "ES2022",
     "module": "es2020",
     "lib": [
       "es2018",
@@ -43,7 +43,9 @@
         "src/log/*"
       ]
     },
-    "typeRoots": [ "node_modules/@types" ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
     "types": [
       "gapi",
       "gapi.auth2",
@@ -51,6 +53,7 @@
       "gapi.client.sheets",
       "googleapis",
       "jest"
-    ]
+    ],
+    "useDefineForClassFields": false
   }
 }
