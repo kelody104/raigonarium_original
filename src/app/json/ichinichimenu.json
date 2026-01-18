@@ -1,0 +1,97 @@
+{
+  "OukaMenu": {
+    "MainMenuName": "桜花",
+    "SubMenuname": [
+      { "menuName": "②三重桜花" },
+      { "menuName": "③三重染め桜花" },
+      { "menuName": "③四重桜花" },
+      { "menuName": "④四重染め桜花" },
+      { "menuName": "④五重桜花" },
+      { "menuName": "⑤五重染め桜花" },
+      { "menuName": "⑤六重桜花" },
+      { "menuName": "⑥六重染め桜花" }
+    ]
+  },
+
+  "RengeMenu": {
+    "MainMenuName": "蓮花",
+    "SubMenuname": [
+      { "menuName": "①三重蓮花" },
+      { "menuName": "②三重染め蓮花" },
+      { "menuName": "①三重奇数蓮花" },
+      { "menuName": "②三重染め奇数蓮花" },
+      { "menuName": "①三重偶数蓮花" },
+      { "menuName": "②三重染め偶数蓮花" },
+      { "menuName": "②四重蓮花" },
+      { "menuName": "③四重染め蓮花" },
+      { "menuName": "②四重奇数蓮花" },
+      { "menuName": "③四重染め奇数蓮花" },
+      { "menuName": "②四重偶数蓮花" },
+      { "menuName": "③四重染め偶数蓮花" },
+      { "menuName": "③五重蓮花" },
+      { "menuName": "④五重染め蓮花" },
+      { "menuName": "③五重奇数蓮花" },
+      { "menuName": "④五重染め奇数蓮花" },
+      { "menuName": "④六重蓮花" },
+      { "menuName": "⑤六重染め蓮花" }
+    ]
+  },
+
+  "CombiMenu": {
+    "MainMenuName": "組合せ役",
+    "SubMenuname": [
+      { "menuName": "⑤六重蓮々花" },
+      { "menuName": "⑥六重蓮桜花" },
+      { "menuName": "⑥六重桜蓮花" },
+      { "menuName": "⑦六重桜々花" },
+      { "menuName": "⑥六重染め蓮々花" },
+      { "menuName": "⑦六重染め蓮桜花" },
+      { "menuName": "⑦六重染め桜蓮花" },
+      { "menuName": "⑧六重染め桜々花" }
+    ]
+  },
+
+  "SpecialMenu": {
+    "MainMenuName": "特殊役",
+    "SubMenuname": [
+      { "menuName": "④山茶花" },
+      { "menuName": "⑥椿" }
+    ]
+  },
+
+  "RaijinMenu": {
+    "MainMenuName": "雷神役",
+    "SubMenuname": [
+      { "menuName": "⑩時雨蓮花" },
+      { "menuName": "⑪霞・双頭蓮" },
+      { "menuName": "⑪桜花乱舞" },
+      { "menuName": "⑫無限輪廻" },
+      { "menuName": "⑫毘沙門櫓" }
+    ]
+  },
+  "OtherMenu": {
+    "MainMenuName": "その他",
+    "SubMenuname": [
+      { "menuName": "初期持ち点" },
+      { "menuName": "+1" },
+      { "menuName": "+2" },
+      { "menuName": "+3" },
+      { "menuName": "+4" },
+      { "menuName": "+5" },
+      { "menuName": "豪雷1" },
+      { "menuName": "豪雷2" },
+      { "menuName": "豪雷3" },
+      { "menuName": "豪雷4" },
+      { "menuName": "※内駒数1" },
+      { "menuName": "※内駒数2" },
+      { "menuName": "※内駒数3" },
+      { "menuName": "※内駒数4" },
+      { "menuName": "※内駒数5" },
+      { "menuName": "※不穏を含む" },
+      { "menuName": "※満月を含む" },
+      { "menuName": "※豪雷を含む" },
+      { "menuName": "※【和】による減点を含む" },
+      { "menuName": "※雷轟解放含む" }
+    ]
+  }
+}

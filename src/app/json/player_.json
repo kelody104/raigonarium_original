@@ -1,0 +1,339 @@
+{
+  "rakura": [
+    {
+      "Name": "雷藏　蝗平",
+      "family": "雷藏家",
+      "Rank": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏　源",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏　祐",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏　匡",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏　友貴",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏のむむ",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏一三四",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏　凛",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏ＹＪＮ",
+      "family": "雷藏家",
+      "Visiable": true
+    }
+  ],
+  "kuze": [
+    {
+      "Name": "空晴伊呂波",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴　鈴",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴たばし",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴　らい",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴　伊史",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴　太地",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴　虹富",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴ぴよ太",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴　優大",
+      "family": "空晴家",
+      "Visiable": true
+    }
+  ],
+  "hisetsu": [
+    {
+      "Name": "飛雪　光",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪　大蛇",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪戚桜琳",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪滉一郎",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪たかや",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪　田貫",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪　不見",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪幽太郎",
+      "family": "飛雪家",
+      "Visiable": true
+    }
+  ],
+  "yakumo": [
+    {
+      "Name": "八雲壱円四",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲　魁透",
+      "family": "八雲家",
+      "Visiable": false
+    },
+    {
+      "Name": "八雲　紗穂",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲　弘輝",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲　志月",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲　竹轟",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲砥草丸",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲ってぃ",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲ボ当地",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲マネー",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲　光忠",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲　梨岳",
+      "family": "八雲家",
+      "Visiable": true
+    }
+  ],
+  "shigure": [
+    {
+      "Name": "時雨　愛市",
+      "family": "時雨家",
+      "Visiable": true
+    },
+    {
+      "Name": "時雨　江雪",
+      "family": "時雨家",
+      "Visiable": true
+    },
+    {
+      "Name": "時雨　紫電",
+      "family": "時雨家",
+      "Visiable": true
+    },
+    {
+      "Name": "時雨　晋介",
+      "family": "時雨家",
+      "Visiable": true
+    },
+    {
+      "Name": "時雨　秀",
+      "family": "時雨家",
+      "Visiable": true
+    },
+
+    {
+      "Name": "時雨　礼",
+      "family": "時雨家",
+      "Visiable": true
+    }
+  ],
+  "tobari": [
+
+  ],
+  "other": [
+    {
+      "Name": "あっきぃ",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "あらし",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "かわ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "ザキ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "すずき",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "たもやま",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "不知駒",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "マーマン",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "まに鰐",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "やらうさ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "良輔",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "リョーマ",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "弗箱",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "ｒｅｃｏｌ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "あかめ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "おちゃほ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "くろのす",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "トクサ丸",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "やっしー",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "名も無き雷人",
+      "family": "その他",
+      "Visiable": true
+    }
+  ]
+}

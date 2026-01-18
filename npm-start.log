@@ -1,0 +1,5 @@
+
+> udonarium@1.14.0 start
+> cross-env NODE_OPTIONS=--openssl-legacy-provider ng serve
+
+- Generating browser application bundles...

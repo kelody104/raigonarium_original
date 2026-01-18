@@ -1,0 +1,693 @@
+{
+  "Time": {
+    "Waiting": 3000,
+    "Playing": {
+      "Minite": 25,
+      "Second": 0
+    }
+  },
+  "Discord": [
+    {
+      "GameRoom": "【大会用】雷の間",
+      "WebHook": "https://discord.com/api/webhooks/934021866354528276/bxz1qWg1lBlNCH7U_qvdBZLbY2HbpANpvtGw7UmgtiTO_RsDr3NPqrPtFT-AFUvgz9sg"
+    },
+    {
+      "GameRoom": "【大会用】蛇の間",
+      "WebHook": "https://discord.com/api/webhooks/934022038086119434/ylgaxgDrmFAhDn7vtbWkQkNS5Un7NwH0yg2kkFtNoIQXRcoe8j82qwqDWLuS7MSEe8Nb"
+    },
+    {
+      "GameRoom": "【大会用】斬の間",
+      "WebHook": "https://discord.com/api/webhooks/934022159494414366/zosSOd9VOqhgah06yMYXnqIId80oNDE88xkwBHR-FXJG-qNLlbkA1z_1W1mGJWYx5wj_"
+    },
+    {
+      "GameRoom": "【大会用】陣の間",
+      "WebHook": "https://discord.com/api/webhooks/934022288339243008/v9owzP9LElsv7cz2ydPUbA5AD7FuESnVSG3hvmVLLSp_uAuoZppkTGh1muMFClqPVNcM"
+    },
+    {
+      "GameRoom": "【大会用】轟の間",
+      "WebHook": "https://discord.com/api/webhooks/934022423936921600/1ipX3jJP_y4swbS_94vL2VezQ32l0hN74uoiEnI97qMMFZLpX9ifPVfeFdqvuK5_BKa_"
+    },
+    {
+      "GameRoom": "【大会用】霧の間",
+      "WebHook": "https://discord.com/api/webhooks/934022561535234098/WIaszO61OzepiyldNBj_C8oOZLIJq5fbW2djqk0X2YCjFG2M23r8SboJyaKbqJgVc7io"
+    },
+    {
+      "GameRoom": "【大会用】瞬の間",
+      "WebHook": "https://discord.com/api/webhooks/934022678434697256/nfgebEvC-Opv0Mn0ZA7H44G_Cd-EE2INKiZawMKcWBSe-bjpnXhgUDlonFvZRydmj3NI"
+    },
+    {
+      "GameRoom": "【大会用】浄の間",
+      "WebHook": "https://discord.com/api/webhooks/934022788405166091/TnEfDK_uzQOgFWbtUqSVy8X-Z_ce336YNc1vjZ67VMPwv7S2l8Fce0jDujGJJmY4iiXp"
+    },
+    {
+      "GameRoom": "【大会用】滅の間",
+      "WebHook": "https://discord.com/api/webhooks/934022912359399424/0StOpbSZJEzxXRz0FlrTd4ZQiMAneyqRTBQlYDEBi1XsopR6kTePKPkwWdgcQjjZQ-vT"
+    },
+    {
+      "GameRoom": "【大会用】幻の間",
+      "WebHook": "https://discord.com/api/webhooks/934408285686214716/GlE57n3dh0MEOhzyQDoGztT_zYVGOGAX3tM3CuNYz1ZCnH3yrF8u6mqfhZUpB-oYvLbD"
+    },
+    {
+      "GameRoom": "【大会用】鳴の間",
+      "WebHook": "https://discord.com/api/webhooks/934408362517471232/Gf3tbFu9XRb-32Pb3RPwrdE2l-RnvbJTYIsrmjKXyYAt0T8fx6r3SydXn2T4yQGwwLQx"
+    },
+    {
+      "GameRoom": "【大会用】赫の間",
+      "WebHook": "https://discord.com/api/webhooks/934408448416821308/7Lk9Uqf3RuckCWt3ehyhc6XgvY2I2nY_t7AZEO8_xFi3_raR_236bb49BGr1BYu0lE4z"
+    }
+  ],
+  "Goshiki": [
+    {
+      "PositionX": 0,
+      "PositionY": 0
+    },
+    {
+      "PositionX": 0,
+      "PositionY": 0
+    },
+    {
+      "PositionX": 0,
+      "PositionY": 0
+    },
+    {
+      "PositionX": 0,
+      "PositionY": 0
+    },
+    {
+      "PositionX": 0,
+      "PositionY": 0
+    }
+
+  ],
+  "Rank": [
+    {
+      "name": "",
+      "plate": "temp[1]"
+    },
+    {
+      "name": "初段",
+      "plate": "temp[1]"
+    },
+    {
+      "name": "二段",
+      "plate": "temp[1]"
+    },
+    {
+      "name": "三段",
+      "plate": "temp[1]"
+    },
+    {
+      "name": "四段",
+      "plate": "temp[1]"
+    },
+    {
+      "name": "五段",
+      "plate": "temp[1]"
+    },
+    {
+      "name": "六段",
+      "plate": "temp[2]"
+    },
+    {
+      "name": "七段",
+      "plate": "temp[2]"
+    },
+    {
+      "name": "八段",
+      "plate": "temp[2]"
+    },
+    {
+      "name": "九段",
+      "plate": "temp[2]"
+    },
+    {
+      "name": "十段",
+      "plate": "temp[3]"
+    },
+    {
+      "name": "堂位",
+      "plate": "temp[4]"
+    },
+    {
+      "name": "真位",
+      "plate": "temp[5]"
+    },
+    {
+      "name": "極位",
+      "plate": "temp[6]"
+    },
+    {
+      "name": "天位",
+      "plate": "temp[7]"
+    },
+    {
+      "name": "雷神",
+      "plate": "temp[8]"
+    }
+
+
+  ],
+  "Coodinate": {
+    "Common": {
+      "Deck": {
+        "PositionX": 1180,
+        "PositionY": 655
+      },
+      "Gora": {
+        "PositionX": 980,
+        "PositionY": 755
+      },
+      "FrontDeck": {
+        "PositionX": 1380,
+        "PositionY": 555
+      },
+      "Ongoma": {
+        "PositionX": 1013,
+        "PositionY": 488
+      }
+    },
+    "Player1": {
+      "kinki": [
+        {
+          "PositionX": 897,
+          "PositionY": 1296
+        },
+        {
+          "PositionX": 897,
+          "PositionY": 1240
+        },
+        {
+          "PositionX": 897,
+          "PositionY": 1184
+        },
+        {
+          "PositionX": 897,
+          "PositionY": 1128
+        }
+      ],
+      "tower": [
+        [
+          {
+            "PositionX": 500,
+            "PositionY": 1225
+          },
+          {
+            "PositionX": 500,
+            "PositionY": 1125
+          },
+          {
+            "PositionX": 500,
+            "PositionY": 1025
+          },
+          {
+            "PositionX": 500,
+            "PositionY": 925
+          },
+          {
+            "PositionX": 500,
+            "PositionY": 825
+          },
+          {
+            "PositionX": 500,
+            "PositionY": 725
+          }
+        ],
+        [
+          {
+            "PositionX": 650,
+            "PositionY": 1225
+          },
+          {
+            "PositionX": 650,
+            "PositionY": 1125
+          },
+          {
+            "PositionX": 650,
+            "PositionY": 1025
+          },
+          {
+            "PositionX": 650,
+            "PositionY": 925
+          },
+          {
+            "PositionX": 650,
+            "PositionY": 825
+          },
+          {
+            "PositionX": 650,
+            "PositionY": 725
+          }
+        ],
+        [
+          {
+            "PositionX": 800,
+            "PositionY": 1225
+          },
+          {
+            "PositionX": 800,
+            "PositionY": 1125
+          },
+          {
+            "PositionX": 800,
+            "PositionY": 1025
+          },
+          {
+            "PositionX": 800,
+            "PositionY": 925
+          },
+          {
+            "PositionX": 800,
+            "PositionY": 825
+          },
+          {
+            "PositionX": 800,
+            "PositionY": 725
+          }
+        ]
+      ],
+      "Point": {
+        "PositionX": 925,
+        "PositionY": 875,
+        "Rotate": 0
+      },
+      "Drawcard": [
+        {
+          "PositionX": 1450,
+          "PositionY": 1275,
+          "Rotate": 0
+        },
+        {
+          "PositionX": 1550,
+          "PositionY": 1275,
+          "Rotate": 0
+        },
+        {
+          "PositionX": 1450,
+          "PositionY": 1175,
+          "Rotate": 0
+        },
+        {
+          "PositionX": 1550,
+          "PositionY": 1175,
+          "Rotate": 0
+        }
+      ],
+      "Nameplate": {
+        "PositionX": 50,
+        "PositionY": 1240,
+        "Rotate": 0
+      },
+      "Ougi": {
+        "PositionX": 1505,
+        "PositionY": 750,
+        "Rotate": 0
+      },
+      "Kaihouroku": [
+        {
+          "PositionX": 2280,
+          "PositionY": 725,
+          "Rotate": 0
+        },
+        {
+          "PositionX": 2150,
+          "PositionY": 725,
+          "Rotate": 0
+        },
+        {
+          "PositionX": 2020,
+          "PositionY": 725,
+          "Rotate": 0
+        },
+        {
+          "PositionX": 1890,
+          "PositionY": 725,
+          "Rotate": 0
+        },
+        {
+          "PositionX": 1760,
+          "PositionY": 725,
+          "Rotate": 0
+        },
+        {
+          "PositionX": 1630,
+          "PositionY": 725,
+          "Rotate": 0
+        }
+      ],
+      "Kyokoku": [
+        {
+          "Komaname": "雷",
+          "PositionX": 55,
+          "PositionY": 737.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "蛇",
+          "PositionX": 155,
+          "PositionY": 737.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "斬",
+          "PositionX": 255,
+          "PositionY": 737.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "陣",
+          "PositionX": 355,
+          "PositionY": 737.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "一",
+          "PositionX": 55,
+          "PositionY": 862.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "二",
+          "PositionX": 155,
+          "PositionY": 862.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "三",
+          "PositionX": 255,
+          "PositionY": 862.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "四",
+          "PositionX": 355,
+          "PositionY": 862.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "五",
+          "PositionX": 55,
+          "PositionY": 1112.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "六",
+          "PositionX": 155,
+          "PositionY": 1112.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "七",
+          "PositionX": 255,
+          "PositionY": 1112.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "轟",
+          "PositionX": 55,
+          "PositionY": 987.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "霧",
+          "PositionX": 155,
+          "PositionY": 987.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "瞬",
+          "PositionX": 255,
+          "PositionY": 987.5,
+          "Rotate": 0
+        },
+        {
+          "Komaname": "浄",
+          "PositionX": 355,
+          "PositionY": 987.5,
+          "Rotate": 0
+        }
+      ]
+    },
+    "Player2": {
+      "kinki": [
+        {
+          "PositionX": 1477,
+          "PositionY": 28
+        },
+        {
+          "PositionX": 1477,
+          "PositionY": 84
+        },
+        {
+          "PositionX": 1477,
+          "PositionY": 140
+        },
+        {
+          "PositionX": 1477,
+          "PositionY": 196
+        }
+      ],
+      "tower": [
+        [
+          {
+            "PositionX": 1875,
+            "PositionY": 75
+          },
+          {
+            "PositionX": 1875,
+            "PositionY": 175
+          },
+          {
+            "PositionX": 1875,
+            "PositionY": 275
+          },
+          {
+            "PositionX": 1875,
+            "PositionY": 375
+          },
+          {
+            "PositionX": 1875,
+            "PositionY": 475
+          },
+          {
+            "PositionX": 1875,
+            "PositionY": 575
+          }
+        ],
+        [
+          {
+            "PositionX": 1725,
+            "PositionY": 75
+          },
+          {
+            "PositionX": 1725,
+            "PositionY": 175
+          },
+          {
+            "PositionX": 1725,
+            "PositionY": 275
+          },
+          {
+            "PositionX": 1725,
+            "PositionY": 375
+          },
+          {
+            "PositionX": 1725,
+            "PositionY": 475
+          },
+          {
+            "PositionX": 1725,
+            "PositionY": 575
+          }
+        ],
+        [
+          {
+            "PositionX": 1575,
+            "PositionY": 75
+          },
+          {
+            "PositionX": 1575,
+            "PositionY": 175
+          },
+          {
+            "PositionX": 1575,
+            "PositionY": 275
+          },
+          {
+            "PositionX": 1575,
+            "PositionY": 375
+          },
+          {
+            "PositionX": 1575,
+            "PositionY": 475
+          },
+          {
+            "PositionX": 1575,
+            "PositionY": 575
+          }
+        ]
+
+      ],
+      "Point": {
+        "PositionX": 1325,
+        "PositionY": 325,
+        "Rotate": 180
+      },
+      "Drawcard": [
+        {
+          "PositionX": 900,
+          "PositionY": 50,
+          "Rotate": 180
+        },
+        {
+          "PositionX": 800,
+          "PositionY": 50,
+          "Rotate": 180
+        },
+        {
+          "PositionX": 900,
+          "PositionY": 150,
+          "Rotate": 180
+        },
+        {
+          "PositionX": 800,
+          "PositionY": 150,
+          "Rotate": 180
+        }
+      ],
+      "Nameplate": {
+        "PositionX": 2000,
+        "PositionY": 45,
+        "Rotate": 180
+      },
+      "Ougi": {
+        "PositionX": 855,
+        "PositionY": 555,
+        "Rotate": 180
+      },
+      "Kaihouroku": [
+        {
+          "PositionX": 80,
+          "PositionY": 575,
+          "Rotate": 180
+        },
+        {
+          "PositionX": 210,
+          "PositionY": 575,
+          "Rotate": 180
+        },
+        {
+          "PositionX": 340,
+          "PositionY": 575,
+          "Rotate": 180
+        },
+        {
+          "PositionX": 470,
+          "PositionY": 575,
+          "Rotate": 180
+        },
+        {
+          "PositionX": 600,
+          "PositionY": 575,
+          "Rotate": 180
+        },
+        {
+          "PositionX": 730,
+          "PositionY": 575,
+          "Rotate": 180
+        }
+      ],
+      "Kyokoku": [
+        {
+          "Komaname": "雷",
+          "PositionX": 2300,
+          "PositionY": 575,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "蛇",
+          "PositionX": 2200,
+          "PositionY": 575,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "斬",
+          "PositionX": 2100,
+          "PositionY": 575,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "陣",
+          "PositionX": 2000,
+          "PositionY": 575,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "一",
+          "PositionX": 2300,
+          "PositionY": 450,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "二",
+          "PositionX": 2200,
+          "PositionY": 450,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "三",
+          "PositionX": 2100,
+          "PositionY": 450,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "四",
+          "PositionX": 2000,
+          "PositionY": 450,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "五",
+          "PositionX": 2300,
+          "PositionY": 200,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "六",
+          "PositionX": 2200,
+          "PositionY": 200,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "七",
+          "PositionX": 2100,
+          "PositionY": 200,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "轟",
+          "PositionX": 2300,
+          "PositionY": 325,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "霧",
+          "PositionX": 2200,
+          "PositionY": 325,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "瞬",
+          "PositionX": 2100,
+          "PositionY": 325,
+          "Rotate": 180
+        },
+        {
+          "Komaname": "浄",
+          "PositionX": 2000,
+          "PositionY": 325,
+          "Rotate": 180
+        }
+      ]
+    }
+  }
+}

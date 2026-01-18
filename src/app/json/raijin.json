@@ -1,0 +1,100 @@
+{
+  "raijin": [
+    {
+      "release": 6,
+      "Name": "初代雷神　空晴 太樹",
+      "available": true,
+      "Ougi1": "覇",
+      "Ougi2": "天",
+      "Ougi3": "啓"
+    },
+    {
+      "release": 2,
+      "Name": "二代目雷神　空晴 天音",
+      "available": true,
+      "Ougi1": "和",
+      "Ougi2": "禅",
+      "Ougi3": "楼"
+    },
+    {
+      "release": 9,
+      "Name": "三代目雷神　飛雪 美琴",
+      "available": true,
+      "Ougi1": "龍",
+      "Ougi2": "琥",
+      "Ougi3": "舞"
+    },
+    {
+      "release": 10,
+      "Name": "四代目雷神　時雨 影助",
+      "available": true,
+      "Ougi1": "忍",
+      "Ougi2": "零",
+      "Ougi3": "怒"
+    },
+    {
+      "release": 3,
+      "Name": "五代目雷神　飛雪 琳太郎",
+      "available": true,
+      "Ougi1": "崩",
+      "Ougi2": "月",
+      "Ougi3": "嵐"
+    },
+    {
+      "release": 12,
+      "Name": "六代目雷神　空晴 十梁",
+      "available": true,
+      "Ougi1": "蒼",
+      "Ougi2": "美",
+      "Ougi3": "麗"
+    },
+    {
+      "release": 5,
+      "Name": "七代目雷神　時雨 清十郎",
+      "available": true,
+      "Ougi1": "幻",
+      "Ougi2": "鳴",
+      "Ougi3": "赫"
+    },
+    {
+      "release": 11,
+      "Name": "八代目雷神　雷藏 千歳",
+      "available": false,
+      "Ougi1": "潤",
+      "Ougi2": "樹",
+      "Ougi3": "麟"
+    },
+    {
+      "release": 7,
+      "Name": "九代目雷神　八雲 雹",
+      "available": true,
+      "Ougi1": "鬼",
+      "Ougi2": "縛",
+      "Ougi3": "影"
+    },
+    {
+      "release": 4,
+      "Name": "十代目雷神　八雲 茶々",
+      "available": true,
+      "Ougi1": "鳳",
+      "Ougi2": "焔",
+      "Ougi3": "姫"
+    },
+    {
+      "release": 8,
+      "Name": "十一代目雷神　飛雪 爽伍",
+      "available":true,
+      "Ougi1": "涼",
+      "Ougi2": "風",
+      "Ougi3": "凛"
+    },
+    {
+      "release": 1,
+      "Name": "十二代目雷神　雷藏 黒光",
+      "available": true,
+      "Ougi1": "滅",
+      "Ougi2": "封",
+      "Ougi3": "神"
+    }
+  ]
+}

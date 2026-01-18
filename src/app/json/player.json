@@ -1,0 +1,365 @@
+{
+  "player": [
+    {
+      "Name": "あっきぃ",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "あらし",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "小倉魁透",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "かわ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "ザキ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "志月",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "すずき",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "たもやま",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "匡",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "不知駒",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "マーマン",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "まに鰐",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "やらうさ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "良輔",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "リョーマ",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "弗箱",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "134",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "Key",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "recol",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏ってぃ",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏蝗平",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏源",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏祐",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏友貴",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏のむむ",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏一三四",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏凛",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "雷藏YJN",
+      "family": "雷藏家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴伊呂波",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴鈴",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴たばし",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴らい",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴伊史",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴太地",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴虹富",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴ぴよ太",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "空晴優大",
+      "family": "空晴家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪光",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪大蛇",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪戚桜琳",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪滉一郎",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪たかや",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪田貫",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪不見",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "飛雪幽太郎",
+      "family": "飛雪家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲壱円四",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲紗穂",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲弘輝",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲竹轟",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲砥草丸",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲ボ当地",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲マネー",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲光忠",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "八雲梨岳",
+      "family": "八雲家",
+      "Visiable": true
+    },
+    {
+      "Name": "時雨愛市",
+      "family": "時雨家",
+      "Visiable": true
+    },
+    {
+      "Name": "時雨江雪",
+      "family": "時雨家",
+      "Visiable": true
+    },
+    {
+      "Name": "時雨紫電",
+      "family": "時雨家",
+      "Visiable": true
+    },
+    {
+      "Name": "時雨晋介",
+      "family": "時雨家",
+      "Visiable": true
+    },
+    {
+      "Name": "時雨秀",
+      "family": "時雨家",
+      "Visiable": true
+    },
+
+    {
+      "Name": "時雨礼",
+      "family": "時雨家",
+      "Visiable": true
+    },
+    {
+      "Name": "サニィ",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "でじ",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "エリザベト怜美",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "岩元辰郎",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "ひみつり",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "歯車ラプト",
+      "family": "その他",
+      "Visiable": false
+    },
+    {
+      "Name": "あかめ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "おちゃほ",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "くろのす",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "トクサ丸",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "やっしー",
+      "family": "その他",
+      "Visiable": true
+    },
+    {
+      "Name": "名も無き雷人",
+      "family": "その他",
+      "Visiable": true
+    }
+  ]
+}

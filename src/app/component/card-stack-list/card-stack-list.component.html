@@ -1,0 +1,21 @@
+<div>
+  <!--<button (click)="close(true)">ウインドウを閉じる</button>
+  <hr/>-->
+  <div *ngFor="let card of cardStack.cards; trackBy: trackByCard" class="box">
+    <div class="image-box" [appTooltip]="card">
+      <div class="image contain" (click)="view(card)" [style.background-image]="'url(' + card?.frontImage?.url + ')' | safe: 'style' "></div>
+      <!--<div class="image contain" [style.background-image]="'url(' + card?.backImage?.url + ')' | safe: 'style' "></div>-->
+      <button type="submit" *ngIf="cardStack.name != '奥義駒' && card.isLocked == false" (click)="drawCard(card)">手に加える</button>
+      <button type="submit" *ngIf="cardStack.name == '奥義駒' && card.isLocked == false && cardStack.BAN_flag == true && cardStack.KAI_flag == false" (click)="KAI(card)">開する</button>
+      <button type="submit" *ngIf="cardStack.name == '奥義駒' && card.isLocked == false && cardStack.BAN_flag == false" (click)="BAN(card)">BANする</button>
+      <span *ngIf="card.isLocked == true || cardStack.KAI_flag == true">開不可</span>
+    </div>
+    <!--<div style="display: inline-block;">
+      <button (click)="showDetail(card)"><i class="material-icons" style="font-size: 1.1em; vertical-align: text-bottom;">settings</i>編集</button>
+      <br>
+      <button (click)="up(card)">↑</button>
+      <button (click)="down(card)">↓</button>
+      <br>
+    </div>-->
+  </div>
+</div>

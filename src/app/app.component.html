@@ -1,0 +1,162 @@
+<div id="app-table-layer" style="position: absolute; width: 100%; height: 100%; overflow: hidden;">
+  <game-table></game-table>
+</div>
+<ui-panel *ngIf="myPeer.MenuVisible == true" [top]="0" [left]="0" [width]="100" [height]= height [title]="'Menu'">
+  <nav>
+    <ul>
+      <!--<li *ngIf="!isConvention && !isOrganizer" (click)="open('')">
+    <a href="https://tonamel.com/competition/Fd1TC" target="_blank">
+      <div class="important">
+        <is class="sico-satellite"></is>
+      </div>
+      <div class="important">大会情報</div>
+    </a>
+  </li>-->
+      <li (click)="open('PeerMenuComponent')">
+        <a routerLink="/" routerLinkActive="active">
+          <div><i class="fas fa-user-plus"></i></div>
+          <div>メインメニュー</div>
+        </a>
+      </li>
+      <li (click)="open('ChatWindowComponent')">
+        <a routerLink="/" routerLinkActive="active">
+          <div><i class="fas fa-comments"></i></div>
+          <div>チャット画面</div>
+        </a>
+      </li>
+      <!--<li *ngIf="isRaijinmode && !isRaijin" (click)="Raijinmodechange()">
+    <a>
+      <div><i class="fas fa-cloud"></i></div>
+      <div>雷轟戦モード</div>
+    </a>
+  </li>
+  <li *ngIf="isRaijinmode && isRaijin" (click)="Raijinmodechange()">
+    <a>
+      <div><i class="fas fa-poo-storm"></i></div>
+      <div>雷神戦モード</div>
+    </a>
+  </li>
+  <li *ngIf="!isConvention" (click)="reset()">
+    <a>
+      <div><i class="fas fa-bolt"></i></div>
+      <div>対戦を始める</div>
+    </a>
+  </li>-->
+      <li (click)="record()">
+        <a>
+          <div><i class="fas fa-clipboard"></i></div>
+          <div>結果報告</div>
+        </a>
+      </li>
+      <li *ngIf="!isConvention" (click)="chessclock()">
+        <a>
+          <div><i class="fas fa-hourglass-start"></i></div>
+          <div>時計を操作する</div>
+        </a>
+      </li>
+      <li (click)="open('')">
+        <a href="https://raigonarium.velvet.jp/RediGames/rulebook/viewer/index.html" target="_blank">
+          <div><i class="fas fa-book-open"></i></div>
+          <div>ルールブック</div>
+        </a>
+      </li>
+      <li (click)="open('JukeboxComponent')">
+        <a routerLink="/" routerLinkActive="active">
+          <div><i class="fas fa-volume-up"></i></div>
+          <div>音量調整</div>
+        </a>
+      </li>
+      <!--<li *ngIf="!isGuide" (click)="Guidemodechange()">
+    <a>
+      <div><i class="fas fa-bell-slash"></i></div>
+      <div>ガイド機能オフ</div>
+    </a>
+  </li>
+  <li *ngIf="isGuide" (click)="Guidemodechange()">
+    <a>
+      <div><i class="fas fa-bell"></i></div>
+      <div>ガイド機能オン</div>
+    </a>
+  </li>-->
+      <li *ngIf="isOrganizer" (click)="open('GameTableSettingComponent')">
+        <a routerLink="/" routerLinkActive="active">
+          <div><i class="fas fa-layer-group"></i></div>
+          <div>テーブル設定</div>
+        </a>
+      </li>
+      <li *ngIf="!isConvention && !isgodeye" (click)="Godeyemodechange()">
+        <a>
+          <div><i class="far fa-eye-slash"></i></div>
+          <div>観戦機能オフ</div>
+        </a>
+      </li>
+      <li *ngIf="!isConvention && isgodeye" (click)="Godeyemodechange()">
+        <a>
+          <div><i class="far fa-eye"></i></div>
+          <div>観戦機能オン</div>
+        </a>
+      </li>
+      <!--*ngIf="isOrganizer"-->
+      <li *ngIf="isOrganizer" (click)="open('FileStorageComponent')">
+        <a routerLink="/" routerLinkActive="active">
+          <div><i class="fas fa-images"></i></div>
+          <div>画像</div>
+        </a>
+      </li>
+      <!--<li *ngIf="isOrganizer" (click)="open('GameObjectInventoryComponent')">
+    <a routerLink="/" routerLinkActive="active">
+      <div><i class="fas fa-folder"></i></div>
+      <div>インベントリ</div>
+    </a>
+  </li>-->
+      <li *ngIf="isOrganizer">
+        <a routerLink="/" routerLinkActive="active">
+          <label>
+            <div><i class="fas fa-file-import"></i></div>
+            <div>ZIP読込</div>
+            <input type="file" style="display: none;" (change)="handleFileSelect($event)" multiple
+                   accept="application/xml,text/xml,application/zip" />
+          </label>
+        </a>
+      </li>
+      <li *ngIf="isOrganizer && !isSaveing" (click)="save()">
+        <a routerLink="/" routerLinkActive="active">
+          <div><i class="fas fa-file-export"></i></div>
+          <div>保存</div>
+        </a>
+      </li>
+      <li *ngIf="isSaveing" style="pointer-events: none;">
+        <a>
+          <div><i class="material-icons vibration-amine">sd_storage</i></div>
+          <div>{{progresPercent}}%</div>
+        </a>
+      </li>
+      <li (click)="tweet()">
+        <a>
+          <div><i class="fab fa-twitter"></i></div>
+          <div>結果をツイート</div>
+        </a>
+      </li>
+      <li (click)="JudgeCall()">
+        <a>
+          <div><i class="fas fa-phone-alt"></i></div>
+          <div>運営を呼ぶ</div>
+        </a>
+      </li>
+      <!--<li *ngIf="!isConvention" (click)="textfileDownload()">
+    <a>
+      <div><i class="fas fa-save"></i></div>
+      <div>結果を保存</div>
+    </a>
+  </li>-->
+      <li *ngIf="!isConvention" (click)="open('')">
+        <a href="https://www.raigonarium.org/RediGames/" target="_blank">
+          <i class="fas fa-home"></i>
+          <div>公式サイト</div>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</ui-panel>
+<div #modalLayer></div>
+<network-indicator class="networkIndicator"></network-indicator>

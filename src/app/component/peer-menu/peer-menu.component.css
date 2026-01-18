@@ -1,0 +1,175 @@
+.image {
+  padding: 0px;
+  width: 100px;
+  height: 100px;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.other {
+  padding: 10px;
+  width: 10px;
+  height: 10px;
+  display: table-cell;
+  vertical-align: top;
+}
+
+.user {
+  display: table-cell;
+  vertical-align: top;
+  padding-left: 10px;
+}
+
+.image img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: bottom;
+}
+
+.cover {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.post_row {
+  margin-right: -25px;
+  margin-left: -25px;
+  line-height: 2.4;
+}
+
+  .post_row:before, .post_row:after {
+    display: table;
+    content: " ";
+  }
+
+  .post_row:after {
+    clear: both;
+  }
+
+.post_col, .post_col-2, .post_col-3 {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  margin-bottom: 2em;
+  padding-right: 25px;
+  padding-left: 25px;
+  float: left;
+}
+
+@media screen and (min-width: 768px) {
+  .post_col-2 {
+    width: 50%;
+  }
+
+  .post_col-3 {
+    width: 33.33333%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .post_col-2 {
+    width: 50%;
+  }
+
+  .post_col-3 {
+    width: 33.33333%;
+  }
+}
+
+.edit {
+  font-size: 14px;
+}
+
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+  font-size: 14px;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.2em;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+  details[open] summary {
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 0.5em;
+  }
+
+
+.card-image {
+  width: 330px;
+  max-height: 480px;
+  padding: 8px;
+  vertical-align: bottom;
+  object-fit: fill;
+  box-sizing: border-box;
+  background-color: rgba(204, 204, 204, 0.5);
+}
+
+.text {
+  font-size: 14px;
+}
+
+.Guide {
+  height: 40px;
+  width: 40px;
+  border: solid 2px #f8e4cb;
+}
+
+.Guide_gray-out {
+  height: 40px;
+  width: 40px;
+  border: solid 2px #ff006e;
+}
+
+@media screen and (max-width:480px) {
+
+  .Guide {
+    height: 32px;
+    width: 32px;
+    border: solid 1.5px #f8e4cb;
+  }
+
+  .Guide_gray-out {
+    height: 32px;
+    width: 32px;
+    border: solid 1.5px #ff006e;
+  }
+}
+
+.section {
+  max-width: 100%;
+  grid-column: 1 / span 2;
+}
+
+.section-text {
+  font-size: 1.1em;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.number {
+  width: 2.5em;
+}
+
+.number_ {
+  width: 2em;
+}
+
+.aaa {
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+}

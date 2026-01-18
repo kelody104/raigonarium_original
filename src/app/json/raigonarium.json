@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "raigonarium-328611",
+  "private_key_id": "fc118bd3fc689c0b1a93eabebf129ea1acfadbaf",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCNXp3DYJZLjKvC\nyfPS+Iz+BYEqC0M/v8vZv1TjIXwYkNvGkc9iAdXzka4twNkuWZfFtoZ5dPUkqaUK\njzehebuiIg1RCmHUiVAjePE8BGPQF23YDw2YKueOcPySerG+JxGWneUJnua3ZtLc\neagXrQ7qdy1YkuFEbXvr7G/EQryhFUeYXeOU0YYmdqyv5hbdrsqkRbc1HpwA+Qa2\n4iB/pyiPp7kktLlc/Ctj+XjFXWb7GfLPqAK1bc00EbUrk2SFOP8TYSAMESkvVivA\nH++OOrtBbJkfR32xYR1fyEw4jIYLN6Gq7GkGOnIs3gYVGsyQiWhPxdibRqDFIRdG\nViGcgKXlAgMBAAECggEAD0RzYc0N1jlqOFZyomts4KcsCKQgPmOCirDe5EuyuP11\n+sc3ACTmHBC04KSV3+tVmIjqk3Xl3rCCjjYi4inBMZSfXwvxvlAZC0ett9dahzfs\niTuw8mjZypiZsmEVTo2uGNfTCzuxu4dbiOuLk4kBViGKUGlGcksnqbZGaMnzUKsQ\nSVddjL7FfTKWEIl73/Ju+ePkiBM1n+lWgm9cn3PzTJKefuRwQcy23pQze0K39bcu\nQFrAv7x6nLzd7cOTvByaI4KVtaGlc6zSTL+pxdg5AWrJvj7JSWgawtwS5u0lundD\niNmVR9km3cCkGRU04eJjfIeNSCAxtzGE5caJMMQH0QKBgQDGEW+dDeI/nC03e8LM\n9GdHVwnAan2ltI2z87OmZ3eNimZCft3+2qYAg0o+c8pCRY96o4vzOwp/hgPMo0Pp\nlxuv5aQY5Hsf1cZAfBEgrzRS+bY19LE5UrSu/AeMoKhZ5TYUQOYCW7bLahJr7i86\nXtHLTzxv5qhcgy7rxNnOYC6lcQKBgQC2t9FRCheo2bse4Vf7ap661mvrN+ggtk6u\nBIkpSf99ob8v07/hyjKf6YQxV0X3pzQdkOMiegJIoquxS+8bKf/SapOmoxVqAsEM\nIeyN+4SSl/ZdoZWNMxV/gh1C0SMX03eVRuZlKuIHSH8N7qEQEgp28gymBAnngScu\nr+ceC9X9tQKBgCYatJ5CTYRvR0OlS5SicDwJQpcB5ao7UgeMmsMopJdWSNYCEjM1\nXTo8B8x7+i1FtJSjYgkpEpv17EUyI56Ms4bjZu5jBkzZk4pUU/c1vZs47xTyPiYJ\nAzmmws0LG1gwAHdlBNrvSftYLLMW338bPsEePUJJ3Znuotg4xq4tUswBAoGASdF3\nqkLmjhvw4ifuMK/BkwA/t1bt3BFrNhi1BU5U/v+SyxLEScczrrFb68cziDsv7eX0\nLaCXPZsivE1OO247YVoXbtIiO6MDNRCbjj0YMVVdfjRixBnoTIxXn//4Ko8Pl+p9\n+E9b489hLVLEFUcEnUtq2sN08OeX2d/NArGLcaUCgYAoLtaTuud5edXvnZ12ke4+\noI0eYxI5JExyHCy0Fk/0s326Tr9tRyw/XNDr340DuSw6e0UNCWtEB+BEU7a/+JP6\n+0IrJcrlI2jW0MZ8IHS20HksNq+0eSADVW3jcRezEZBtSZGTxXYzkZ0kGJeFitSX\nveotuhtUsJID7+i9Sy3KkQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "id-332@raigonarium-328611.iam.gserviceaccount.com",
+  "client_id": "114764819403508894533",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/id-332%40raigonarium-328611.iam.gserviceaccount.com"
+}

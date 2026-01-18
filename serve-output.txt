@@ -1,0 +1,23 @@
+Compiling @angular/core : es2015 as esm2015
+Compiling @angular/animations : es2015 as esm2015
+Compiling @angular/common : es2015 as esm2015
+Compiling @angular/animations/browser : es2015 as esm2015
+Compiling @angular/platform-browser : es2015 as esm2015
+Compiling @angular/forms : es2015 as esm2015
+Compiling @angular/platform-browser-dynamic : es2015 as esm2015
+Compiling @angular/platform-browser/animations : es2015 as esm2015
+- Generating browser application bundles...
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+ 1: 00007FF7AAF1ECE5 
+ 2: 00007FF7AAEF8196 
+ 3: 00007FF7AAEF8BA0 
+ 4: 00007FF7AB188D5E 
+ 5: 00007FF7AB188C8F 
+ 6: 00007FF7AB6C69D4 
+ 7: 00007FF7AB6BD137 
+ 8: 00007FF7AB6BB6AC 
+ 9: 00007FF7AB6C4627 
+10: 00007FF7AB6C46A6 
+11: 00007FF7AB267767 
+12: 00007FF7AB2FF44A 
+13: 000000CFE185C5C1 
