@@ -839,12 +839,21 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       const client = win.google.accounts.oauth2.initTokenClient({
         client_id: '540509284100-j5ctoogbiot6uf0iutniorojdcf51t01.apps.googleusercontent.com',
         scope: 'https://www.googleapis.com/auth/drive.file',
-        prompt: ''
+        prompt: '',
+        callback: (response: any) => {
+          if (response.access_token) {
+            this.googleAccessToken = response.access_token;
+            this.googleTokenExpiresAt = Date.now() + (response.expires_in * 1000 || 3600000);
+            console.log('Google トークン取得成功');
+          } else {
+            console.error('Google トークン取得失敗:', response);
+          }
+        }
       });
 
       return new Promise((resolve) => {
         try {
-          client.callback = (response: any) => {
+          const handleTokenResponse = (response: any) => {
             if (response.access_token) {
               this.googleAccessToken = response.access_token;
               this.googleTokenExpiresAt = Date.now() + (response.expires_in * 1000 || 3600000);
@@ -855,7 +864,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
               resolve(null);
             }
           };
-          client.requestAccessToken({ prompt: 'consent' });
+          
+          client.callback = handleTokenResponse;
+          client.requestAccessToken();
         } catch (error) {
           console.error('トークン取得エラー:', error);
           resolve(null);
