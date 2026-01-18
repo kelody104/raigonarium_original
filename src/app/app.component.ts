@@ -724,17 +724,84 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     this.isSaveing = true;
     this.progresPercent = 0;
 
+  　let Nameplates: Card[] = this.tabletopService.cards.filter(plate => { return plate.name == "名札" });
     let roomName = Network.peerContext && 0 < Network.peerContext.roomName.length
       ? Network.peerContext.roomName
-      : 'ルームデータ';
-    await this.saveDataService.saveRoomAsync(roomName, percent => {
-      this.progresPercent = percent;
-    });
+      : '対戦ログ_' + Nameplates[0].playername + ' VS ' + Nameplates[1].playername;
+    
+    try {
+      const zipFile = await this.saveDataService.saveRoomAsync(roomName, percent => {
+        this.progresPercent = percent;
+      });
+
+      // Google Driveにアップロード
+      await this.uploadToGoogleDrive(zipFile, roomName);
+
+      // ダウンロード処理はコメントアウト
+      // const link = document.createElement("a");
+      // link.href = URL.createObjectURL(zipFile);
+      // link.download = roomName + '.zip';
+      // link.click();
+    } catch (error) {
+      console.error('Save failed:', error);
+      alert('保存に失敗しました: ' + error.message);
+    }
 
     setTimeout(() => {
       this.isSaveing = false;
       this.progresPercent = 0;
     }, 500);
+  }
+
+  private async uploadToGoogleDrive(zipFile: any, fileName: string): Promise<void> {
+    const folderId = '1x9AMvGY4q1i4k1jUBZ0rtBxgut955QNj';
+    const accessToken = await this.getGoogleAccessToken();
+    
+    if (!accessToken) {
+      throw new Error('Google Driveアクセストークンを取得できません');
+    }
+
+    const formData = new FormData();
+    const metadata = {
+      name: fileName + '_' + new Date().toISOString().slice(0, 10) + '.zip',
+      parents: [folderId]
+    };
+    
+    formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+    formData.append('file', zipFile instanceof Blob ? zipFile : new Blob([zipFile]));
+
+    const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer ' + accessToken
+      },
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error('Google Driveアップロードに失敗しました: ' + response.statusText);
+    }
+
+    console.log('Successfully uploaded to Google Drive');
+  }
+
+  private async getGoogleAccessToken(): Promise<string> {
+    // Google認証トークン取得
+    // 注: このメソッドはアプリケーション設定に応じて実装が必要です
+    // 以下は例実装です
+    try {
+      if ((window as any).gapi && (window as any).gapi.auth2) {
+        const auth2 = (window as any).gapi.auth2.getAuthInstance();
+        if (auth2 && auth2.isSignedIn.get()) {
+          const user = auth2.currentUser.get();
+          const authResponse = user.getAuthResponse();
+          return authResponse.id_token || authResponse.access_token;
+        }
+      }
+    } catch (error) {
+      console.warn('Google認証取得失敗:', error);
+    }
+    return null;
   }
 
   handleFileSelect(event: Event) {
