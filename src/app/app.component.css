@@ -4,7 +4,7 @@ nav ul {
     margin: 0px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
+    gap: 2px;
     width: 100%;
   /*
   border: 1px solid #bbb;
@@ -30,8 +30,8 @@ nav ul > li {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 24px;
-  width: 24px;
+  height: 28px;
+  width: 28px;
 }
 
 nav ul > li:hover {
@@ -42,16 +42,16 @@ nav ul > li:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     font-size: 10px;
     user-select: none;
     color: #000000;
   }
 
   nav ul > li > a:hover {
-    height: 24px;
-    width: 24px;
+    height: 28px;
+    width: 28px;
     font-size: 10px;
     user-select: none;
     color: #CCCCCC;
