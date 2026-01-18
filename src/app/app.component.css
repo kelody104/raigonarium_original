@@ -23,24 +23,6 @@ nav ul > li {
   cursor: -moz-pointer;
   cursor: -webkit-pointer;
   cursor: pointer;
-  position: relative;
-}
-
-nav ul > li:hover::after {
-  content: attr(title);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.9);
-  color: #FFF;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap;
-  z-index: 1000;
-  margin-bottom: 5px;
-  pointer-events: none;
 }
 
 nav ul > li:hover {
@@ -146,4 +128,19 @@ nav ul a, nav ul a:hover, nav ul a:active, nav ul a:visited {
   100% {
     opacity: 1;
   }
+}
+
+.cursor-tooltip {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #FFF;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10000;
+  pointer-events: none;
+  display: none;
+  max-width: 200px;
+  word-wrap: break-word;
 }

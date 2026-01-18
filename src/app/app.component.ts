@@ -65,9 +65,11 @@ import { CardStack } from './class/card-stack';
 export class AppComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('modalLayer', { read: ViewContainerRef, static: true }) modalLayerViewContainerRef: ViewContainerRef;
+  @ViewChild('cursorTooltip') cursorTooltipElement: any;
   private immediateUpdateTimer: NodeJS.Timer = null;
   private lazyUpdateTimer: NodeJS.Timer = null;
   private openPanelCount: number = 0;
+  private tooltipTimeout: any = null;
   isSaveing: boolean = false;
   isConvention: boolean = Status.ConventionMode;
   isOrganizer: boolean = Status.OrganizerMode;
@@ -363,10 +365,61 @@ export class AppComponent implements AfterViewInit, OnDestroy {
         }
       }
     }
+    
+    // ツールチップの初期化
+    this.setupTooltips();
   }
 
   ngOnDestroy() {
     EventSystem.unregister(this);
+  }
+
+  private setupTooltips() {
+    // すべてのメニュー項目にイベントリスナーを設定
+    const menuItems = document.querySelectorAll('nav ul li[title]');
+    
+    menuItems.forEach(item => {
+      item.addEventListener('mouseenter', (e: MouseEvent) => {
+        const title = (item as HTMLElement).getAttribute('title');
+        if (title && this.cursorTooltipElement) {
+          const tooltipEl = this.cursorTooltipElement.nativeElement;
+          tooltipEl.textContent = title;
+          tooltipEl.style.display = 'block';
+          this.updateTooltipPosition(e as MouseEvent);
+        }
+      });
+      
+      item.addEventListener('mousemove', (e: MouseEvent) => {
+        if (this.cursorTooltipElement) {
+          this.updateTooltipPosition(e as MouseEvent);
+        }
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        if (this.cursorTooltipElement) {
+          this.cursorTooltipElement.nativeElement.style.display = 'none';
+        }
+      });
+    });
+    
+    // グローバルマウスムーブイベント
+    document.addEventListener('mousemove', (e: MouseEvent) => {
+      // アクティブなツールチップがある場合のみ位置を更新
+      if (this.cursorTooltipElement && this.cursorTooltipElement.nativeElement.style.display === 'block') {
+        this.updateTooltipPosition(e);
+      }
+    });
+  }
+
+  private updateTooltipPosition(event: MouseEvent) {
+    if (!this.cursorTooltipElement) return;
+    
+    const tooltipEl = this.cursorTooltipElement.nativeElement;
+    const offsetX = 10; // カーソルから右へ
+    const offsetY = 10; // カーソルから下へ
+    
+    tooltipEl.style.left = (event.clientX + offsetX) + 'px';
+    tooltipEl.style.top = (event.clientY + offsetY) + 'px';
   }
 
   open(componentName: string) {
@@ -742,7 +795,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       this.fallbackLocalDownload(zipFile, roomName);
 
       // ダウンロード完了メッセージ
-      alert('ダウンロードが完了しました');
+      //alert('ダウンロードが完了しました');
 
     } catch (error) {
       console.error('Save failed:', error);
