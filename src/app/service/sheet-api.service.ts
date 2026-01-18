@@ -198,7 +198,34 @@ export class SheetApiService {
    */
   private handleError(error: any) {
     console.error('Sheet API Error:', error);
-    const errorMessage = error?.error?.error || error?.message || 'Unknown error occurred';
-    return throwError(() => new Error(errorMessage));
+    
+    let errorMessage = 'Unknown error occurred';
+    let errorDetails = {
+      url: this.getProxyUrl(),
+      status: error?.status,
+      statusText: error?.statusText,
+      errorResponse: error?.error,
+      message: error?.message
+    };
+
+    // エラータイプ別のメッセージ
+    if (error?.status === 0) {
+      errorMessage = 'Network error - Cannot reach proxy server. Check if the server is running and accessible.';
+    } else if (error?.status === 404) {
+      errorMessage = 'Proxy not found (404) - PHP proxy file may not exist or path is incorrect.';
+    } else if (error?.status === 500) {
+      errorMessage = `Server error (500) - ${error?.error?.error || 'Server-side error occurred'}`;
+    } else if (error?.status === 403) {
+      errorMessage = 'Forbidden (403) - Check authentication token configuration.';
+    } else if (error?.statusText === 'Unknown Error') {
+      errorMessage = 'CORS error or proxy server not accessible - Check proxy URL and CORS configuration.';
+    } else if (error?.error?.error) {
+      errorMessage = error.error.error;
+    } else if (error?.message) {
+      errorMessage = error.message;
+    }
+
+    console.error('Error Details:', errorDetails);
+    return throwError(() => new Error(`${errorMessage}\n\nProxy URL: ${this.getProxyUrl()}`));
   }
 }

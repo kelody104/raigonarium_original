@@ -38,7 +38,9 @@
   <div *ngIf="isFailed && !isTesting" class="status-section failed">
     <i class="fas fa-exclamation-circle"></i>
     <h3>✗ 通信失敗</h3>
-    <p class="error-message">{{ errorMessage }}</p>
+    <div class="error-details">
+      <p class="error-message">{{ errorMessage }}</p>
+    </div>
   </div>
 
   <!-- 結果表示 -->
