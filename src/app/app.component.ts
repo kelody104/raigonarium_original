@@ -737,6 +737,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       // Google Driveにアップロード
       await this.uploadToGoogleDrive(zipFile, roomName);
 
+      // アップロード完了メッセージ
+      alert('アップロードが完了しました');
+
       // ダウンロード処理はコメントアウト
       // const link = document.createElement("a");
       // link.href = URL.createObjectURL(zipFile);
