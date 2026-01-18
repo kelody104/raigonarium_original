@@ -79,8 +79,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   progresPercent: number = 0;
   rooms: { alias: string, roomName: string, peerContexts: PeerContext[], capacity: string }[] = [];
   NetworkService = Network;
-  private googleAccessToken: string = null;
-  private googleTokenExpiresAt: number = 0;
 
   get myPeer(): PeerCursor { return PeerCursor.myCursor; }
 
@@ -343,9 +341,6 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   async ngAfterViewInit() {
     PanelService.defaultParentViewContainerRef = ModalService.defaultParentViewContainerRef = ContextMenuService.defaultParentViewContainerRef = this.modalLayerViewContainerRef;
-    
-    // Google API 初期化
-    this.initializeGoogleAPI();
     
     setTimeout(() => {
       if (Status.Testmode != true) {
@@ -743,11 +738,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
       console.log('zipファイル作成完了:', zipFile);
       
-      // Google Driveにアップロード
-      await this.uploadToGoogleDrive(zipFile, roomName);
+      // ローカルダウンロード
+      this.fallbackLocalDownload(zipFile, roomName);
 
-      // アップロード完了メッセージ
-      alert('アップロードが完了しました');
+      // ダウンロード完了メッセージ
+      alert('ダウンロードが完了しました');
 
     } catch (error) {
       console.error('Save failed:', error);
@@ -760,58 +755,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     }, 500);
   }
 
-  private async uploadToGoogleDrive(zipFile: any, fileName: string): Promise<void> {
-    const folderId = '1x9AMvGY4q1i4k1jUBZ0rtBxgut955QNj';
-    const accessToken = await this.getGoogleAccessToken();
-    
-    if (!accessToken) {
-      console.warn('Google Driveアクセストークンを取得できません。ローカルダウンロードに切り替えます。');
-      // トークンが取得できない場合はローカルダウンロードにフォールバック
-      this.fallbackLocalDownload(zipFile, fileName);
-      return;
-    }
 
-    try {
-      const formData = new FormData();
-      const metadata = {
-        name: fileName + '_' + new Date().toISOString().slice(0, 10) + '.zip',
-        parents: [folderId]
-      };
-      
-      formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
-      formData.append('file', zipFile instanceof Blob ? zipFile : new Blob([zipFile]));
-
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30秒のタイムアウト
-
-      console.log('Google Driveへのアップロード開始...');
-      const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Bearer ' + accessToken
-        },
-        body: formData,
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Google Driveアップロードエラー:', response.status, errorText);
-        throw new Error('Google Driveアップロードに失敗しました: ' + response.statusText);
-      }
-
-      console.log('Google Driveへのアップロード成功');
-    } catch (error) {
-      if (error.name === 'AbortError') {
-        console.warn('Google Driveアップロードがタイムアウトしました。ローカルダウンロードに切り替えます。');
-        this.fallbackLocalDownload(zipFile, fileName);
-      } else {
-        throw error;
-      }
-    }
-  }
 
   private fallbackLocalDownload(zipFile: any, fileName: string) {
     console.log('ローカルダウンロードにフォールバック...');
@@ -821,75 +765,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     link.click();
   }
 
-  private async getGoogleAccessToken(): Promise<string> {
-    // キャッシュされたトークンが有効な場合はそれを返す
-    if (this.googleAccessToken && this.googleTokenExpiresAt > Date.now()) {
-      return this.googleAccessToken;
-    }
 
-    try {
-      // Google Identity Services を使用してトークンを取得
-      const win = window as any;
-      
-      if (!win.google || !win.google.accounts || !win.google.accounts.oauth2) {
-        console.error('Google API が読み込まれていません');
-        return null;
-      }
-
-      const client = win.google.accounts.oauth2.initTokenClient({
-        client_id: '540509284100-j5ctoogbiot6uf0iutniorojdcf51t01.apps.googleusercontent.com',
-        scope: 'https://www.googleapis.com/auth/drive.file',
-        prompt: '',
-        callback: (response: any) => {
-          if (response.access_token) {
-            this.googleAccessToken = response.access_token;
-            this.googleTokenExpiresAt = Date.now() + (response.expires_in * 1000 || 3600000);
-            console.log('Google トークン取得成功');
-          } else {
-            console.error('Google トークン取得失敗:', response);
-          }
-        }
-      });
-
-      return new Promise((resolve) => {
-        try {
-          const handleTokenResponse = (response: any) => {
-            if (response.access_token) {
-              this.googleAccessToken = response.access_token;
-              this.googleTokenExpiresAt = Date.now() + (response.expires_in * 1000 || 3600000);
-              console.log('Google トークン取得成功');
-              resolve(this.googleAccessToken);
-            } else {
-              console.error('Google トークン取得失敗:', response);
-              resolve(null);
-            }
-          };
-          
-          client.callback = handleTokenResponse;
-          client.requestAccessToken();
-        } catch (error) {
-          console.error('トークン取得エラー:', error);
-          resolve(null);
-        }
-      });
-    } catch (error) {
-      console.error('Google 認証エラー:', error);
-      return null;
-    }
-  }
-
-  private initializeGoogleAPI() {
-    try {
-      // Google Picker API の初期化
-      const script = document.createElement('script');
-      script.src = 'https://apis.google.com/js/picker-and-drive-realtime.js';
-      script.async = true;
-      document.head.appendChild(script);
-      console.log('Google API 初期化完了');
-    } catch (error) {
-      console.warn('Google API 初期化エラー:', error);
-    }
-  }
 
   handleFileSelect(event: Event) {
     let input = <HTMLInputElement>event.target;
