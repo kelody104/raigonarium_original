@@ -30,8 +30,8 @@ nav ul > li {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 28px;
-  width: 28px;
+  height: 36px;
+  width: 36px;
 }
 
 nav ul > li:hover {
@@ -42,16 +42,16 @@ nav ul > li:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 28px;
-    width: 28px;
+    height: 36px;
+    width: 36px;
     font-size: 10px;
     user-select: none;
     color: #000000;
   }
 
   nav ul > li > a:hover {
-    height: 28px;
-    width: 28px;
+    height: 36px;
+    width: 36px;
     font-size: 10px;
     user-select: none;
     color: #CCCCCC;
