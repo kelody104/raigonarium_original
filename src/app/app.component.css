@@ -16,13 +16,14 @@ nav ul {
 
 nav ul > li {
   text-align: center;
-  padding: 5px;
+  padding: 0px;
   color: #CCC;
   color: #444;
 
   cursor: -moz-pointer;
   cursor: -webkit-pointer;
   cursor: pointer;
+  display: inline-block;
 }
 
 nav ul > li:hover {
@@ -30,16 +31,19 @@ nav ul > li:hover {
   background-color: rgba(30, 30, 30, 0.8);
 }
   nav ul > li > a {
-    height: 128px;
-    width: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    width: 64px;
     font-size: 10px;
     user-select: none;
     color: #000000;
   }
 
   nav ul > li > a:hover {
-    height: 128px;
-    width: 128px;
+    height: 64px;
+    width: 64px;
     font-size: 10px;
     user-select: none;
     color: #CCCCCC;
