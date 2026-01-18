@@ -112,6 +112,14 @@ export class CardStackListComponent implements OnInit, OnDestroy {
       }
 
     }
+    if(this.cardStack.name == "奥義駒" && this.cardStack.cards.length > 0) {
+      let cards = this.cardStack.drawCardAll();
+      let cardstacks: CardStack[] = this.tabletopService.cardStacks;
+      cardstacks = cardstacks.filter(stack => { return stack.name == "除外駒"; });
+      for (let card of cards) {
+        cardstacks[0].putOnBottom(card);
+      }
+    }
     if (this.cardStack.cards.length == 0) this.cardStack.destroy();
     this.panelService.close();
   }

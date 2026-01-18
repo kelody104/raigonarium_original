@@ -266,8 +266,8 @@
         ]
       ],
       "Point": {
-        "PositionX": 925,
-        "PositionY": 875,
+        "PositionX": 1455,
+        "PositionY": 700,
         "Rotate": 0
       },
       "Drawcard": [
@@ -298,8 +298,8 @@
         "Rotate": 0
       },
       "Ougi": {
-        "PositionX": 1505,
-        "PositionY": 750,
+        "PositionX": 980,
+        "PositionY": 925,
         "Rotate": 0
       },
       "Kaihouroku": [
@@ -528,8 +528,8 @@
 
       ],
       "Point": {
-        "PositionX": 1325,
-        "PositionY": 325,
+        "PositionX": 787.5,
+        "PositionY": 502.5,
         "Rotate": 180
       },
       "Drawcard": [
@@ -560,8 +560,8 @@
         "Rotate": 180
       },
       "Ougi": {
-        "PositionX": 855,
-        "PositionY": 555,
+        "PositionX": 1380,
+        "PositionY": 375,
         "Rotate": 180
       },
       "Kaihouroku": [

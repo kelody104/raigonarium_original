@@ -52,8 +52,8 @@ export class TabletopActionService {
       private contextMenuService: ContextMenuService,
   ) { }
 
-  isFullSize: boolean = Status.OrganizerMode;
-  //isFullSize: boolean = true;
+  //isFullSize: boolean = Status.OrganizerMode;
+  isFullSize: boolean = true;
 
   makeDefaultTable() {
     let tableSelecter = new TableSelecter('tableSelecter');
@@ -1277,11 +1277,13 @@ export class TabletopActionService {
     cardStack.isLocked = true;
 
     let top: Card = cardStack.drawCard();
-    top.location.x = Coodinate.Common.Gora.PositionX;
-    top.location.y = Coodinate.Common.Gora.PositionY;
+    let excdeck: CardStack = CardStack.create('除外駒');
+    excdeck.putOnBottom(top);
+    excdeck.location.x = Coodinate.Common.Gora.PositionX;
+    excdeck.location.y = Coodinate.Common.Gora.PositionY;
     if (players == 4) top.state = CardState.FRONT;
     else top.state = CardState.BACK;
-    top.isLocked = true;
+    excdeck.isLocked = true;
   }
 
   Raizaninitial_tanabata(players: number, cardStack: CardStack) {

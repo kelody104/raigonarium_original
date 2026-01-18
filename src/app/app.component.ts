@@ -344,7 +344,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     setTimeout(() => {
       if (Status.Testmode != true) {
         this.panelService.open(PeerMenuComponent, { width: 460, height: 395, left: 100 });
-        this.panelService.open(ChatWindowComponent, { width: 600, height: 685, left: 560 });
+        //this.panelService.open(ChatWindowComponent, { width: 600, height: 685, left: 560 });
       }
     }, 0);
     if (location.hash.length > 1) {

@@ -245,8 +245,12 @@ export class CardStackComponent implements OnInit, AfterViewInit, OnDestroy {
     } else if (this.name == "奥義駒") {
       this.OugiStack();
     }
-    else if (this.name == "風" || this.name == "零") {
+    else if (this.name == "風" || this.name == "零" ) {
       this.showStackList(this.cardStack);
+    }
+    else if(this.name == "除外駒"){
+      if(this.isLocked == false) this.showStackList(this.cardStack);
+      else return;
     }
     else if (this.name == "峡谷" && this.cards.length == 1) {
       return;
