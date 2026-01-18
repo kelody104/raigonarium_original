@@ -4,7 +4,7 @@ nav ul {
     margin: 0px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    gap: 2px;
     width: 100%;
   /*
   border: 1px solid #bbb;
