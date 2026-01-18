@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ★CORS対応：OPTIONS リクエストはすぐに 200 OK を返す
+  RewriteCond %{REQUEST_METHOD} ^OPTIONS$ [L]
+  RewriteRule ^(.*)$ - [L,QSA]

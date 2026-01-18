@@ -76,7 +76,7 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   isRaijinmode: boolean = Status.Raijinmode;
   isRaijin: boolean = false;
   isGuide: boolean = false;
-  height: number = 150;//395,555,605,680
+  height: number = 120;//395,555,605,680
   isgodeye: boolean = Status.OrganizerMode;
   progresPercent: number = 0;
   rooms: { alias: string, roomName: string, peerContexts: PeerContext[], capacity: string }[] = [];

@@ -55,8 +55,8 @@ import { PointerDeviceService } from 'service/pointer-device.service';
 import { TabletopService } from 'service/tabletop.service';
 
 import { AppComponent } from './app.component';
-//import { HttpModule } from '@angular/http';
-//import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { SheetApiService } from 'service/sheet-api.service';
 
 @NgModule({
   declarations: [
@@ -109,8 +109,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     CommonModule,
     FormsModule,
-    //HttpClientModule,
-    //HttpModule
+    HttpClientModule,
   ],
   providers: [
     AppConfigService,
@@ -121,6 +120,7 @@ import { AppComponent } from './app.component';
     PanelService,
     PointerDeviceService,
     TabletopService,
+    SheetApiService,
   ],
   bootstrap: [AppComponent]
 })
