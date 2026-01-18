@@ -15,8 +15,8 @@ export interface SheetApiResponse {
 })
 export class SheetApiService {
   // ★本番環境では環境設定から読み込む
-  private proxyUrl = 'https://mitarashi.link/sheet-proxy.php';
-  private localProxyUrl = 'http://localhost:8000/sheet-proxy.php';
+  private proxyUrl = 'https://mitarashi.link/api/sheet-proxy.php';
+  private localProxyUrl = 'http://localhost:8000/api/sheet-proxy.php';
 
   constructor(private http: HttpClient) {}
 
