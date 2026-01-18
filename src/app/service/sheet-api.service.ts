@@ -199,9 +199,10 @@ export class SheetApiService {
   private handleError(error: any) {
     console.error('Sheet API Error:', error);
     
+    const proxyUrl = this.getProxyUrl();
     let errorMessage = 'Unknown error occurred';
     let errorDetails = {
-      url: this.getProxyUrl(),
+      url: proxyUrl,
       status: error?.status,
       statusText: error?.statusText,
       errorResponse: error?.error,
@@ -226,6 +227,6 @@ export class SheetApiService {
     }
 
     console.error('Error Details:', errorDetails);
-    return throwError(() => new Error(`${errorMessage}\n\nProxy URL: ${this.getProxyUrl()}`));
+    return throwError(() => new Error(`${errorMessage}\n\nProxy URL: ${proxyUrl}`));
   }
 }
