@@ -79,6 +79,8 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   progresPercent: number = 0;
   rooms: { alias: string, roomName: string, peerContexts: PeerContext[], capacity: string }[] = [];
   NetworkService = Network;
+  private googleAccessToken: string = null;
+  private googleTokenExpiresAt: number = 0;
 
   get myPeer(): PeerCursor { return PeerCursor.myCursor; }
 
@@ -341,6 +343,10 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
   async ngAfterViewInit() {
     PanelService.defaultParentViewContainerRef = ModalService.defaultParentViewContainerRef = ContextMenuService.defaultParentViewContainerRef = this.modalLayerViewContainerRef;
+    
+    // Google API 初期化
+    this.initializeGoogleAPI();
+    
     setTimeout(() => {
       if (Status.Testmode != true) {
         this.panelService.open(PeerMenuComponent, { width: 460, height: 395, left: 100 });
@@ -816,22 +822,55 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   private async getGoogleAccessToken(): Promise<string> {
-    // Google認証トークン取得
-    // 注: このメソッドはアプリケーション設定に応じて実装が必要です
-    // 以下は例実装です
-    try {
-      if ((window as any).gapi && (window as any).gapi.auth2) {
-        const auth2 = (window as any).gapi.auth2.getAuthInstance();
-        if (auth2 && auth2.isSignedIn.get()) {
-          const user = auth2.currentUser.get();
-          const authResponse = user.getAuthResponse();
-          return authResponse.id_token || authResponse.access_token;
-        }
-      }
-    } catch (error) {
-      console.warn('Google認証取得失敗:', error);
+    // キャッシュされたトークンが有効な場合はそれを返す
+    if (this.googleAccessToken && this.googleTokenExpiresAt > Date.now()) {
+      return this.googleAccessToken;
     }
-    return null;
+
+    try {
+      // Google Identity Services を使用してトークンを取得
+      const tokenResponse = await (window as any).google.accounts.oauth2.initTokenClient({
+        client_id: '540509284100-j5ctoogbiot6uf0iutniorojdcf51t01.apps.googleusercontent.com',
+        scope: 'https://www.googleapis.com/auth/drive.file',
+        prompt: 'consent',
+        callback: (response: any) => {
+          if (response.access_token) {
+            this.googleAccessToken = response.access_token;
+            this.googleTokenExpiresAt = Date.now() + (response.expires_in * 1000 || 3600000);
+            console.log('Google トークン取得成功:', response);
+          } else {
+            console.error('Google トークン取得失敗:', response);
+          }
+        }
+      }).requestAccessToken();
+
+      // トークンが取得されるまで待機
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          if (this.googleAccessToken) {
+            resolve(this.googleAccessToken);
+          } else {
+            resolve(null);
+          }
+        }, 2000);
+      });
+    } catch (error) {
+      console.error('Google トークン取得エラー:', error);
+      return null;
+    }
+  }
+
+  private initializeGoogleAPI() {
+    try {
+      // Google Picker API の初期化
+      const script = document.createElement('script');
+      script.src = 'https://apis.google.com/js/picker-and-drive-realtime.js';
+      script.async = true;
+      document.head.appendChild(script);
+      console.log('Google API 初期化完了');
+    } catch (error) {
+      console.warn('Google API 初期化エラー:', error);
+    }
   }
 
   handleFileSelect(event: Event) {
