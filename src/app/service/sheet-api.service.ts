@@ -32,7 +32,7 @@ export class SheetApiService {
 
     return this.http.get<T>(url).pipe(
       retry(1),
-      catchError(this.handleError)
+      catchError(error => this.handleError(error))
     );
   }
 
@@ -47,7 +47,7 @@ export class SheetApiService {
 
     return this.http.post<T>(url, body).pipe(
       retry(1),
-      catchError(this.handleError)
+      catchError(error => this.handleError(error))
     );
   }
 
