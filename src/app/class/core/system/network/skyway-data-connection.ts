@@ -128,6 +128,21 @@ export class SkyWayDataConnection extends EventEmitter {
     clearTimeout(this.timeoutTimer);
     this.timeoutTimer = null;
   }
+
+  async updateStatsAsync() {
+    // WebRTC統計情報の更新（スタブメソッド）
+    if (this.conn && this.conn._dc) {
+      try {
+        // WebRTCデータチャネルの統計情報を更新
+        const stats = await this.conn._pc?.getStats?.();
+        if (stats) {
+          // 統計情報の処理
+        }
+      } catch (error) {
+        // 統計情報取得時のエラーを無視
+      }
+    }
+  }
 }
 
 /* 
