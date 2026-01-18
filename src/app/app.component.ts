@@ -34,6 +34,7 @@ import { ModalComponent } from 'component/modal/modal.component';
 import { PeerMenuComponent } from 'component/peer-menu/peer-menu.component';
 import { TextViewComponent } from 'component/text-view/text-view.component';
 import { UIPanelComponent } from 'component/ui-panel/ui-panel.component';
+import { SheetApiCheckComponent } from 'component/sheet-api-check/sheet-api-check.component';
 import { AppConfig, AppConfigService } from 'service/app-config.service';
 import { ChatMessageService } from 'service/chat-message.service';
 import { ContextMenuService, ContextMenuAction } from 'service/context-menu.service';
@@ -818,6 +819,17 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     link.click();
   }
 
+  /**
+   * Sheet API通信チェックモーダルを開く
+   */
+  openSheetApiCheck() {
+    this.panelService.open(SheetApiCheckComponent, {
+      width: 500,
+      height: 600,
+      left: (window.innerWidth - 500) / 2,
+      top: (window.innerHeight - 600) / 2
+    });
+  }
 
 
   handleFileSelect(event: Event) {

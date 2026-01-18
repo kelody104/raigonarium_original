@@ -57,6 +57,7 @@ import { TabletopService } from 'service/tabletop.service';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SheetApiService } from 'service/sheet-api.service';
+import { SheetApiCheckComponent } from 'component/sheet-api-check/sheet-api-check.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { SheetApiService } from 'service/sheet-api.service';
     DraggableDirective,
     ResizableDirective,
     ChatInputComponent,
+    SheetApiCheckComponent,
   ],
   imports: [
     BrowserModule,

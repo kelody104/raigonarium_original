@@ -1,0 +1,57 @@
+<div class="sheet-api-check-panel">
+  <div class="check-header">
+    <h2>Sheet API 通信チェック</h2>
+    <p>スプレッドシートとの通信状態を確認します</p>
+  </div>
+
+  <div class="check-controls">
+    <button 
+      class="test-button" 
+      (click)="testConnection()" 
+      [disabled]="isTesting">
+      <i class="fas fa-network-wired"></i>
+      {{ isTesting ? 'テスト中...' : 'テスト実行' }}
+    </button>
+    <button 
+      class="reset-button" 
+      (click)="reset()" 
+      [disabled]="isTesting">
+      <i class="fas fa-redo"></i>
+      リセット
+    </button>
+  </div>
+
+  <!-- テスト進行中 -->
+  <div *ngIf="isTesting" class="status-section loading">
+    <i class="fas fa-spinner fa-spin"></i>
+    <p>スプレッドシートと通信中...</p>
+  </div>
+
+  <!-- 成功 -->
+  <div *ngIf="isSuccess && !isTesting" class="status-section success">
+    <i class="fas fa-check-circle"></i>
+    <h3>✓ 通信成功</h3>
+    <p>スプレッドシートとの通信に成功しました</p>
+  </div>
+
+  <!-- 失敗 -->
+  <div *ngIf="isFailed && !isTesting" class="status-section failed">
+    <i class="fas fa-exclamation-circle"></i>
+    <h3>✗ 通信失敗</h3>
+    <p class="error-message">{{ errorMessage }}</p>
+  </div>
+
+  <!-- 結果表示 -->
+  <div *ngIf="result && !isTesting" class="result-section">
+    <h3>レスポンス詳細</h3>
+    <div class="result-content">
+      <pre>{{ getResultJson() }}</pre>
+    </div>
+  </div>
+
+  <!-- テスト未実行 -->
+  <div *ngIf="!isTesting && !isSuccess && !isFailed" class="status-section info">
+    <i class="fas fa-info-circle"></i>
+    <p>「テスト実行」をクリックして通信確認を開始してください</p>
+  </div>
+</div>
