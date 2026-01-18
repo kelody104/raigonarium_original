@@ -167,10 +167,7 @@ export class SheetApiService {
    * プロキシURLの選択（環境に応じて）
    */
   private getProxyUrl(): string {
-    // development環境ではlocalhost、本番環境ではmitarashi.linkを使用
-    if (this.isLocalEnvironment()) {
-      return this.localProxyUrl;
-    }
+    // 常に本番URLを使用
     return this.proxyUrl;
   }
 
