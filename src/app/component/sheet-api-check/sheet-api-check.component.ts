@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { SheetApiService, SheetApiResponse } from 'service/sheet-api.service';
 
+interface ActionButton {
+  name: string;
+  action: string;
+  method: 'get' | 'post';
+  description: string;
+}
+
 @Component({
   selector: 'sheet-api-check',
   templateUrl: './sheet-api-check.component.html',
@@ -12,6 +19,19 @@ export class SheetApiCheckComponent implements OnInit {
   isFailed = false;
   result: any = null;
   errorMessage = '';
+  
+  // 利用可能なアクションボタン
+  getActions: ActionButton[] = [
+    { name: 'Ping', action: 'ping', method: 'get', description: '疎通確認' },
+    { name: 'Season', action: 'season', method: 'get', description: 'シーズン情報' },
+    { name: 'Tournaments', action: 'tournaments', method: 'get', description: '大会一覧' },
+    { name: 'Players', action: 'players', method: 'get', description: 'プレイヤー一覧' },
+  ];
+  
+  postActions: ActionButton[] = [
+    { name: 'Ping (POST)', action: 'ping', method: 'post', description: '疎通確認 (POST)' },
+    { name: 'Season (POST)', action: 'season', method: 'post', description: 'シーズン情報 (POST)' },
+  ];
 
   constructor(private sheetApiService: SheetApiService) {}
 
@@ -21,14 +41,28 @@ export class SheetApiCheckComponent implements OnInit {
    * スプレッドシート通信テスト実行
    */
   testConnection() {
+    this.executeAction('ping', 'get');
+  }
+
+  /**
+   * アクションを実行
+   */
+  executeAction(action: string, method: 'get' | 'post') {
     this.isTesting = true;
     this.isSuccess = false;
     this.isFailed = false;
     this.result = null;
     this.errorMessage = '';
 
-    // pingで疎通確認
-    this.sheetApiService.ping().subscribe(
+    let request: any;
+    
+    if (method === 'get') {
+      request = this.sheetApiService.get(action);
+    } else {
+      request = this.sheetApiService.post(action, {});
+    }
+
+    request.subscribe(
       (response: SheetApiResponse) => {
         this.isTesting = false;
 
@@ -68,3 +102,4 @@ export class SheetApiCheckComponent implements OnInit {
     this.errorMessage = '';
   }
 }
+

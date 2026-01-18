@@ -56,4 +56,36 @@
     <i class="fas fa-info-circle"></i>
     <p>「テスト実行」をクリックして通信確認を開始してください</p>
   </div>
+
+  <!-- GETアクションボタン -->
+  <div class="actions-section">
+    <h3>GETアクション</h3>
+    <div class="action-buttons">
+      <button 
+        *ngFor="let action of getActions"
+        class="action-button"
+        (click)="executeAction(action.action, 'get')"
+        [disabled]="isTesting"
+        [title]="action.description">
+        <i class="fas fa-arrow-right"></i>
+        {{ action.name }}
+      </button>
+    </div>
+  </div>
+
+  <!-- POSTアクションボタン -->
+  <div class="actions-section">
+    <h3>POSTアクション</h3>
+    <div class="action-buttons">
+      <button 
+        *ngFor="let action of postActions"
+        class="action-button post"
+        (click)="executeAction(action.action, 'post')"
+        [disabled]="isTesting"
+        [title]="action.description">
+        <i class="fas fa-arrow-right"></i>
+        {{ action.name }}
+      </button>
+    </div>
+  </div>
 </div>
