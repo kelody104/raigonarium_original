@@ -730,21 +730,18 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       : '対戦ログ_' + Nameplates[0].playername + ' VS ' + Nameplates[1].playername;
     
     try {
+      console.log('セーブ処理開始...');
       const zipFile = await this.saveDataService.saveRoomAsync(roomName, percent => {
         this.progresPercent = percent;
       });
 
+      console.log('zipファイル作成完了:', zipFile);
       // Google Driveにアップロード
       await this.uploadToGoogleDrive(zipFile, roomName);
 
       // アップロード完了メッセージ
       alert('アップロードが完了しました');
 
-      // ダウンロード処理はコメントアウト
-      // const link = document.createElement("a");
-      // link.href = URL.createObjectURL(zipFile);
-      // link.download = roomName + '.zip';
-      // link.click();
     } catch (error) {
       console.error('Save failed:', error);
       alert('保存に失敗しました: ' + error.message);
@@ -761,31 +758,60 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     const accessToken = await this.getGoogleAccessToken();
     
     if (!accessToken) {
-      throw new Error('Google Driveアクセストークンを取得できません');
+      console.warn('Google Driveアクセストークンを取得できません。ローカルダウンロードに切り替えます。');
+      // トークンが取得できない場合はローカルダウンロードにフォールバック
+      this.fallbackLocalDownload(zipFile, fileName);
+      return;
     }
 
-    const formData = new FormData();
-    const metadata = {
-      name: fileName + '_' + new Date().toISOString().slice(0, 10) + '.zip',
-      parents: [folderId]
-    };
-    
-    formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
-    formData.append('file', zipFile instanceof Blob ? zipFile : new Blob([zipFile]));
+    try {
+      const formData = new FormData();
+      const metadata = {
+        name: fileName + '_' + new Date().toISOString().slice(0, 10) + '.zip',
+        parents: [folderId]
+      };
+      
+      formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+      formData.append('file', zipFile instanceof Blob ? zipFile : new Blob([zipFile]));
 
-    const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer ' + accessToken
-      },
-      body: formData
-    });
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30秒のタイムアウト
 
-    if (!response.ok) {
-      throw new Error('Google Driveアップロードに失敗しました: ' + response.statusText);
+      console.log('Google Driveへのアップロード開始...');
+      const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + accessToken
+        },
+        body: formData,
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Google Driveアップロードエラー:', response.status, errorText);
+        throw new Error('Google Driveアップロードに失敗しました: ' + response.statusText);
+      }
+
+      console.log('Google Driveへのアップロード成功');
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        console.warn('Google Driveアップロードがタイムアウトしました。ローカルダウンロードに切り替えます。');
+        this.fallbackLocalDownload(zipFile, fileName);
+      } else {
+        throw error;
+      }
     }
+  }
 
-    console.log('Successfully uploaded to Google Drive');
+  private fallbackLocalDownload(zipFile: any, fileName: string) {
+    console.log('ローカルダウンロードにフォールバック...');
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(zipFile instanceof Blob ? zipFile : new Blob([zipFile]));
+    link.download = fileName + '_' + new Date().toISOString().slice(0, 10) + '.zip';
+    link.click();
   }
 
   private async getGoogleAccessToken(): Promise<string> {
