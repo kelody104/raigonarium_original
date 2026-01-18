@@ -12,16 +12,14 @@
       <div class="important">大会情報</div>
     </a>
   </li>-->
-      <li (click)="open('PeerMenuComponent')">
+      <li (click)="open('PeerMenuComponent')" title="メインメニュー">
         <a routerLink="/" routerLinkActive="active">
           <div><i class="fas fa-user-plus"></i></div>
-          <div>メインメニュー</div>
         </a>
       </li>
-      <li (click)="open('ChatWindowComponent')">
+      <li (click)="open('ChatWindowComponent')" title="チャット画面">
         <a routerLink="/" routerLinkActive="active">
           <div><i class="fas fa-comments"></i></div>
-          <div>チャット画面</div>
         </a>
       </li>
       <!--<li *ngIf="isRaijinmode && !isRaijin" (click)="Raijinmodechange()">
@@ -42,28 +40,31 @@
       <div>対戦を始める</div>
     </a>
   </li>-->
-      <li (click)="record()">
+      <!-- <li *ngIf="!isSaveing" (click)="save()">
         <a>
           <div><i class="fas fa-clipboard"></i></div>
           <div>結果報告</div>
         </a>
+      </li> -->
+      <li *ngIf="isSaveing" style="pointer-events: none;" title="保存中">
+        <a>
+          <div><i class="material-icons vibration-amine">sd_storage</i></div>
+          <div>{{progresPercent}}%</div>
+        </a>
       </li>
-      <li *ngIf="!isConvention" (click)="chessclock()">
+      <li *ngIf="!isConvention" (click)="chessclock()" title="時計を操作する">
         <a>
           <div><i class="fas fa-hourglass-start"></i></div>
-          <div>時計を操作する</div>
         </a>
       </li>
-      <li (click)="open('')">
+      <li (click)="open('')" title="ルールブック">
         <a href="https://raigonarium.velvet.jp/RediGames/rulebook/viewer/index.html" target="_blank">
           <div><i class="fas fa-book-open"></i></div>
-          <div>ルールブック</div>
         </a>
       </li>
-      <li (click)="open('JukeboxComponent')">
+      <li (click)="open('JukeboxComponent')" title="音量調整">
         <a routerLink="/" routerLinkActive="active">
           <div><i class="fas fa-volume-up"></i></div>
-          <div>音量調整</div>
         </a>
       </li>
       <!--<li *ngIf="!isGuide" (click)="Guidemodechange()">
@@ -78,29 +79,25 @@
       <div>ガイド機能オン</div>
     </a>
   </li>-->
-      <li *ngIf="isOrganizer" (click)="open('GameTableSettingComponent')">
+      <li *ngIf="isOrganizer" (click)="open('GameTableSettingComponent')" title="テーブル設定">
         <a routerLink="/" routerLinkActive="active">
           <div><i class="fas fa-layer-group"></i></div>
-          <div>テーブル設定</div>
         </a>
       </li>
-      <li *ngIf="!isConvention && !isgodeye" (click)="Godeyemodechange()">
+      <li *ngIf="!isConvention && !isgodeye" (click)="Godeyemodechange()" title="観戦機能オフ">
         <a>
           <div><i class="far fa-eye-slash"></i></div>
-          <div>観戦機能オフ</div>
         </a>
       </li>
-      <li *ngIf="!isConvention && isgodeye" (click)="Godeyemodechange()">
+      <li *ngIf="!isConvention && isgodeye" (click)="Godeyemodechange()" title="観戦機能オン">
         <a>
           <div><i class="far fa-eye"></i></div>
-          <div>観戦機能オン</div>
         </a>
       </li>
       <!--*ngIf="isOrganizer"-->
-      <li *ngIf="isOrganizer" (click)="open('FileStorageComponent')">
+      <li *ngIf="isOrganizer" (click)="open('FileStorageComponent')" title="画像">
         <a routerLink="/" routerLinkActive="active">
           <div><i class="fas fa-images"></i></div>
-          <div>画像</div>
         </a>
       </li>
       <!--<li *ngIf="isOrganizer" (click)="open('GameObjectInventoryComponent')">
@@ -109,50 +106,40 @@
       <div>インベントリ</div>
     </a>
   </li>-->
-      <li *ngIf="isOrganizer">
+      <li *ngIf="isOrganizer" title="ZIP読込">
         <a routerLink="/" routerLinkActive="active">
           <label>
             <div><i class="fas fa-file-import"></i></div>
-            <div>ZIP読込</div>
             <input type="file" style="display: none;" (change)="handleFileSelect($event)" multiple
                    accept="application/xml,text/xml,application/zip" />
           </label>
         </a>
       </li>
-      <li *ngIf="isOrganizer && !isSaveing" (click)="save()">
+      <li *ngIf="isOrganizer && !isSaveing" (click)="save()" title="保存">
         <a routerLink="/" routerLinkActive="active">
           <div><i class="fas fa-file-export"></i></div>
-          <div>保存</div>
         </a>
       </li>
-      <li *ngIf="isSaveing" style="pointer-events: none;">
-        <a>
-          <div><i class="material-icons vibration-amine">sd_storage</i></div>
-          <div>{{progresPercent}}%</div>
-        </a>
-      </li>
-      <li (click)="tweet()">
+      <li (click)="tweet()" title="結果をツイート">
         <a>
           <div><i class="fab fa-twitter"></i></div>
-          <div>結果をツイート</div>
         </a>
       </li>
-      <li (click)="JudgeCall()">
+      <!-- <li (click)="JudgeCall()">
         <a>
           <div><i class="fas fa-phone-alt"></i></div>
           <div>運営を呼ぶ</div>
         </a>
-      </li>
+      </li> -->
       <!--<li *ngIf="!isConvention" (click)="textfileDownload()">
     <a>
       <div><i class="fas fa-save"></i></div>
       <div>結果を保存</div>
     </a>
   </li>-->
-      <li *ngIf="!isConvention" (click)="open('')">
+      <li *ngIf="!isConvention" (click)="open('')" title="公式サイト">
         <a href="https://www.raigonarium.org/RediGames/" target="_blank">
           <i class="fas fa-home"></i>
-          <div>公式サイト</div>
         </a>
       </li>
     </ul>

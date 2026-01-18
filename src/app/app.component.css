@@ -23,6 +23,24 @@ nav ul > li {
   cursor: -moz-pointer;
   cursor: -webkit-pointer;
   cursor: pointer;
+  position: relative;
+}
+
+nav ul > li:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #FFF;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 5px;
+  pointer-events: none;
 }
 
 nav ul > li:hover {
