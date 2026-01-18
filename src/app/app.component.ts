@@ -829,33 +829,40 @@ export class AppComponent implements AfterViewInit, OnDestroy {
 
     try {
       // Google Identity Services を使用してトークンを取得
-      const tokenResponse = await (window as any).google.accounts.oauth2.initTokenClient({
+      const win = window as any;
+      
+      if (!win.google || !win.google.accounts || !win.google.accounts.oauth2) {
+        console.error('Google API が読み込まれていません');
+        return null;
+      }
+
+      const client = win.google.accounts.oauth2.initTokenClient({
         client_id: '540509284100-j5ctoogbiot6uf0iutniorojdcf51t01.apps.googleusercontent.com',
         scope: 'https://www.googleapis.com/auth/drive.file',
-        prompt: 'consent',
-        callback: (response: any) => {
-          if (response.access_token) {
-            this.googleAccessToken = response.access_token;
-            this.googleTokenExpiresAt = Date.now() + (response.expires_in * 1000 || 3600000);
-            console.log('Google トークン取得成功:', response);
-          } else {
-            console.error('Google トークン取得失敗:', response);
-          }
-        }
-      }).requestAccessToken();
+        prompt: ''
+      });
 
-      // トークンが取得されるまで待機
       return new Promise((resolve) => {
-        setTimeout(() => {
-          if (this.googleAccessToken) {
-            resolve(this.googleAccessToken);
-          } else {
-            resolve(null);
-          }
-        }, 2000);
+        try {
+          client.callback = (response: any) => {
+            if (response.access_token) {
+              this.googleAccessToken = response.access_token;
+              this.googleTokenExpiresAt = Date.now() + (response.expires_in * 1000 || 3600000);
+              console.log('Google トークン取得成功');
+              resolve(this.googleAccessToken);
+            } else {
+              console.error('Google トークン取得失敗:', response);
+              resolve(null);
+            }
+          };
+          client.requestAccessToken({ prompt: 'consent' });
+        } catch (error) {
+          console.error('トークン取得エラー:', error);
+          resolve(null);
+        }
       });
     } catch (error) {
-      console.error('Google トークン取得エラー:', error);
+      console.error('Google 認証エラー:', error);
       return null;
     }
   }
